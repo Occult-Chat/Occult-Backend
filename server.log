@@ -1,0 +1,492 @@
+[12:16:16:11:52 Thread#1/INFO] >> Running server
+[12:16:16:11:52 Thread#1/DEBUG] >> server config has been serialized: Config: ServerConfig {
+    port: 8000,
+    db_url: Url {
+        scheme: "https",
+        cannot_be_a_base: false,
+        username: "",
+        password: None,
+        host: Some(
+            Domain(
+                "example.com",
+            ),
+        ),
+        port: None,
+        path: "/",
+        query: None,
+        fragment: None,
+    },
+    use_http: false,
+    log_level: Info,
+    log_path: Some(
+        "./",
+    ),
+    env_override: true,
+}
+[12:16:16:11:52 Thread#1/DEBUG] >> server_config = ServerConfig {
+    port: 8000,
+    db_url: Url {
+        scheme: "https",
+        cannot_be_a_base: false,
+        username: "",
+        password: None,
+        host: Some(
+            Domain(
+                "example.com",
+            ),
+        ),
+        port: None,
+        path: "/",
+        query: None,
+        fragment: None,
+    },
+    use_http: false,
+    log_level: Info,
+    log_path: Some(
+        "./",
+    ),
+    env_override: true,
+}
+[12:16:16:11:52 Thread#1/INFO] >> 🔧 Configured for debug.
+[12:16:16:11:52 Thread#1/INFO] >> address: 127.0.0.1
+[12:16:16:11:52 Thread#1/INFO] >> port: 8000
+[12:16:16:11:52 Thread#1/INFO] >> workers: 16
+[12:16:16:11:52 Thread#1/INFO] >> max blocking threads: 512
+[12:16:16:11:52 Thread#1/INFO] >> ident: Rocket
+[12:16:16:11:52 Thread#1/INFO] >> IP header: X-Real-IP
+[12:16:16:11:52 Thread#1/INFO] >> limits: bytes = 8KiB, data-form = 2MiB, file = 1MiB, form = 32KiB, json = 1MiB, msgpack = 1MiB, string = 8KiB
+[12:16:16:11:52 Thread#1/INFO] >> temp dir: /tmp
+[12:16:16:11:52 Thread#1/INFO] >> http/2: true
+[12:16:16:11:52 Thread#1/INFO] >> keep-alive: 5s
+[12:16:16:11:52 Thread#1/INFO] >> tls: disabled
+[12:16:16:11:52 Thread#1/INFO] >> shutdown: ctrlc = true, force = true, signals = [SIGTERM], grace = 2s, mercy = 3s
+[12:16:16:11:52 Thread#1/INFO] >> log level: normal
+[12:16:16:11:52 Thread#1/INFO] >> cli colors: true
+[12:16:16:11:52 Thread#1/INFO] >> 📬 Routes:
+[12:16:16:11:52 Thread#1/INFO] >> (get_servers) GET /servers
+[12:16:16:11:52 Thread#1/INFO] >> (create_server) POST /servers
+[12:16:16:11:52 Thread#1/INFO] >> (get_current_user) GET /users/@me
+[12:16:16:11:52 Thread#1/INFO] >> (update_current_user) PATCH /users/@me
+[12:16:16:11:52 Thread#1/INFO] >> (login) POST /auth/login application/json
+[12:16:16:11:52 Thread#1/INFO] >> (register) POST /auth/register application/json
+[12:16:16:11:52 Thread#1/INFO] >> (get_user) GET /users/<user_id>
+[12:16:16:11:52 Thread#1/INFO] >> (get_server) GET /servers/<server_id>
+[12:16:16:11:52 Thread#1/INFO] >> (update_server) PATCH /servers/<server_id>
+[12:16:16:11:52 Thread#1/INFO] >> (delete_server) DELETE /servers/<server_id>
+[12:16:16:11:52 Thread#1/INFO] >> (get_channel) GET /channels/<channel_id>
+[12:16:16:11:52 Thread#1/INFO] >> (update_channel) PATCH /channels/<channel_id> application/json
+[12:16:16:11:52 Thread#1/INFO] >> (delete_channel) DELETE /channels/<channel_id>
+[12:16:16:11:52 Thread#1/INFO] >> (join_server) POST /users/@me/servers application/json
+[12:16:16:11:52 Thread#1/INFO] >> (create_invite) POST /servers/<server_id>/invites application/json
+[12:16:16:11:52 Thread#1/INFO] >> (get_channels) GET /servers/<server_id>/channels
+[12:16:16:11:52 Thread#1/INFO] >> (create_channel) POST /servers/<server_id>/channels application/json
+[12:16:16:11:52 Thread#1/INFO] >> (send_typing_indicator) POST /channels/<channel_id>/typing
+[12:16:16:11:52 Thread#1/INFO] >> (get_messages) GET /channels/<channel_id>/messages?<before>&<after>&<limit>
+[12:16:16:11:52 Thread#1/INFO] >> (create_message) POST /channels/<channel_id>/messages
+[12:16:16:11:52 Thread#1/INFO] >> (upload_attachments) POST /channels/<channel_id>/attachments
+[12:16:16:11:52 Thread#1/INFO] >> (pin_message) PUT /channels/<channel_id>/pins/<message_id>
+[12:16:16:11:52 Thread#1/INFO] >> (unpin_message) DELETE /channels/<channel_id>/pins/<message_id>
+[12:16:16:11:52 Thread#1/INFO] >> (update_message) PATCH /channels/<channel_id>/messages/<message_id> application/json
+[12:16:16:11:52 Thread#1/INFO] >> (delete_message) DELETE /channels/<channel_id>/messages/<message_id>
+[12:16:16:11:52 Thread#1/INFO] >> (add_reaction) PUT /channels/<channel_id>/reactions/<message_id>/<emoji>
+[12:16:16:11:52 Thread#1/INFO] >> (remove_reaction) DELETE /channels/<channel_id>/reactions/<message_id>/<emoji>
+[12:16:16:11:52 Thread#1/INFO] >> 📡 Fairings:
+[12:16:16:11:52 Thread#1/INFO] >> Shield (liftoff, response, singleton)
+[12:16:16:11:52 Thread#1/INFO] >> 🛡️ Shield:
+[12:16:16:11:52 Thread#1/INFO] >> X-Frame-Options: SAMEORIGIN
+[12:16:16:11:52 Thread#1/INFO] >> X-Content-Type-Options: nosniff
+[12:16:16:11:52 Thread#1/INFO] >> Permissions-Policy: interest-cohort=()
+[12:16:16:11:52 Thread#1/WARN] >> 🚀 Rocket has launched from http://127.0.0.1:8000
+[12:16:16:11:52 Thread#1/ERR] >> Starting DB on port 8000
+[12:16:16:12:03 Thread#2/WARN] >> Received SIGINT. Requesting shutdown.
+[12:16:16:12:03 Thread#1/INFO] >> Shutdown requested. Waiting for pending I/O...
+[12:16:16:12:03 Thread#1/INFO] >> Graceful shutdown completed successfully.
+[12:16:16:12:03 Thread#2/WARN] >> Received SIGINT. Shutdown already in progress.
+[12:16:16:13:32 Thread#1/INFO] >> Running server
+[12:16:16:13:32 Thread#1/DEBUG] >> server config has been serialized: Config: ServerConfig {
+    port: 8000,
+    db_url: Url {
+        scheme: "https",
+        cannot_be_a_base: false,
+        username: "",
+        password: None,
+        host: Some(
+            Domain(
+                "example.com",
+            ),
+        ),
+        port: None,
+        path: "/",
+        query: None,
+        fragment: None,
+    },
+    use_http: false,
+    log_level: Info,
+    log_path: Some(
+        "./",
+    ),
+    env_override: true,
+}
+[12:16:16:13:32 Thread#1/DEBUG] >> server_config = ServerConfig {
+    port: 8000,
+    db_url: Url {
+        scheme: "https",
+        cannot_be_a_base: false,
+        username: "",
+        password: None,
+        host: Some(
+            Domain(
+                "example.com",
+            ),
+        ),
+        port: None,
+        path: "/",
+        query: None,
+        fragment: None,
+    },
+    use_http: false,
+    log_level: Info,
+    log_path: Some(
+        "./",
+    ),
+    env_override: true,
+}
+[12:16:16:13:32 Thread#1/INFO] >> 🔧 Configured for debug.
+[12:16:16:13:32 Thread#1/INFO] >> address: 127.0.0.1
+[12:16:16:13:32 Thread#1/INFO] >> port: 8000
+[12:16:16:13:32 Thread#1/INFO] >> workers: 16
+[12:16:16:13:32 Thread#1/INFO] >> max blocking threads: 512
+[12:16:16:13:32 Thread#1/INFO] >> ident: Rocket
+[12:16:16:13:32 Thread#1/INFO] >> IP header: X-Real-IP
+[12:16:16:13:32 Thread#1/INFO] >> limits: bytes = 8KiB, data-form = 2MiB, file = 1MiB, form = 32KiB, json = 1MiB, msgpack = 1MiB, string = 8KiB
+[12:16:16:13:32 Thread#1/INFO] >> temp dir: /tmp
+[12:16:16:13:32 Thread#1/INFO] >> http/2: true
+[12:16:16:13:32 Thread#1/INFO] >> keep-alive: 5s
+[12:16:16:13:32 Thread#1/INFO] >> tls: disabled
+[12:16:16:13:32 Thread#1/INFO] >> shutdown: ctrlc = true, force = true, signals = [SIGTERM], grace = 2s, mercy = 3s
+[12:16:16:13:32 Thread#1/INFO] >> log level: normal
+[12:16:16:13:32 Thread#1/INFO] >> cli colors: true
+[12:16:16:13:32 Thread#1/INFO] >> 📬 Routes:
+[12:16:16:13:32 Thread#1/INFO] >> (get_servers) GET /servers
+[12:16:16:13:32 Thread#1/INFO] >> (create_server) POST /servers
+[12:16:16:13:32 Thread#1/INFO] >> (get_current_user) GET /users/@me
+[12:16:16:13:32 Thread#1/INFO] >> (update_current_user) PATCH /users/@me
+[12:16:16:13:32 Thread#1/INFO] >> (login) POST /auth/login application/json
+[12:16:16:13:32 Thread#1/INFO] >> (register) POST /auth/register application/json
+[12:16:16:13:32 Thread#1/INFO] >> (get_user) GET /users/<user_id>
+[12:16:16:13:32 Thread#1/INFO] >> (get_server) GET /servers/<server_id>
+[12:16:16:13:32 Thread#1/INFO] >> (update_server) PATCH /servers/<server_id>
+[12:16:16:13:32 Thread#1/INFO] >> (delete_server) DELETE /servers/<server_id>
+[12:16:16:13:32 Thread#1/INFO] >> (get_channel) GET /channels/<channel_id>
+[12:16:16:13:32 Thread#1/INFO] >> (update_channel) PATCH /channels/<channel_id> application/json
+[12:16:16:13:32 Thread#1/INFO] >> (delete_channel) DELETE /channels/<channel_id>
+[12:16:16:13:32 Thread#1/INFO] >> (join_server) POST /users/@me/servers application/json
+[12:16:16:13:32 Thread#1/INFO] >> (create_invite) POST /servers/<server_id>/invites application/json
+[12:16:16:13:32 Thread#1/INFO] >> (get_channels) GET /servers/<server_id>/channels
+[12:16:16:13:32 Thread#1/INFO] >> (create_channel) POST /servers/<server_id>/channels application/json
+[12:16:16:13:32 Thread#1/INFO] >> (send_typing_indicator) POST /channels/<channel_id>/typing
+[12:16:16:13:32 Thread#1/INFO] >> (get_messages) GET /channels/<channel_id>/messages?<before>&<after>&<limit>
+[12:16:16:13:32 Thread#1/INFO] >> (create_message) POST /channels/<channel_id>/messages
+[12:16:16:13:32 Thread#1/INFO] >> (upload_attachments) POST /channels/<channel_id>/attachments
+[12:16:16:13:32 Thread#1/INFO] >> (pin_message) PUT /channels/<channel_id>/pins/<message_id>
+[12:16:16:13:32 Thread#1/INFO] >> (unpin_message) DELETE /channels/<channel_id>/pins/<message_id>
+[12:16:16:13:32 Thread#1/INFO] >> (update_message) PATCH /channels/<channel_id>/messages/<message_id> application/json
+[12:16:16:13:32 Thread#1/INFO] >> (delete_message) DELETE /channels/<channel_id>/messages/<message_id>
+[12:16:16:13:32 Thread#1/INFO] >> (add_reaction) PUT /channels/<channel_id>/reactions/<message_id>/<emoji>
+[12:16:16:13:32 Thread#1/INFO] >> (remove_reaction) DELETE /channels/<channel_id>/reactions/<message_id>/<emoji>
+[12:16:16:13:32 Thread#1/INFO] >> 📡 Fairings:
+[12:16:16:13:32 Thread#1/INFO] >> Shield (liftoff, response, singleton)
+[12:16:16:13:32 Thread#1/INFO] >> 🛡️ Shield:
+[12:16:16:13:32 Thread#1/INFO] >> X-Content-Type-Options: nosniff
+[12:16:16:13:32 Thread#1/INFO] >> X-Frame-Options: SAMEORIGIN
+[12:16:16:13:32 Thread#1/INFO] >> Permissions-Policy: interest-cohort=()
+[12:16:16:13:32 Thread#1/WARN] >> 🚀 Rocket has launched from http://127.0.0.1:8000
+[12:16:16:13:32 Thread#1/ERROR] >> Starting DB on port 8000
+[12:16:16:20:04 Thread#1/DEBUG] >> server config has been serialized: Config: ServerConfig {
+    port: 8000,
+    db_url: Url {
+        scheme: "https",
+        cannot_be_a_base: false,
+        username: "",
+        password: None,
+        host: Some(
+            Domain(
+                "example.com",
+            ),
+        ),
+        port: None,
+        path: "/",
+        query: None,
+        fragment: None,
+    },
+    use_http: false,
+    log_level: Info,
+    log_path: Some(
+        "./",
+    ),
+    env_override: true,
+}
+[12:16:16:20:04 Thread#1/TRACE] >> registering event source with poller: token=Token(0), interests=READABLE
+[12:16:16:20:04 Thread#1/TRACE] >> registering event source with poller: token=Token(1), interests=READABLE
+[12:16:16:25:18 Thread#1/DEBUG] >> server config has been serialized: Config: ServerConfig {
+    port: 8000,
+    db_url: Url {
+        scheme: "https",
+        cannot_be_a_base: false,
+        username: "",
+        password: None,
+        host: Some(
+            Domain(
+                "example.com",
+            ),
+        ),
+        port: None,
+        path: "/",
+        query: None,
+        fragment: None,
+    },
+    use_http: false,
+    log_level: Info,
+    log_path: Some(
+        "./",
+    ),
+    env_override: true,
+}
+[12:16:16:25:18 Thread#1/TRACE] >> registering event source with poller: token=Token(0), interests=READABLE
+[12:16:16:25:18 Thread#1/TRACE] >> registering event source with poller: token=Token(1), interests=READABLE
+[12:16:16:27:54 Thread#1/DEBUG] >> server config has been serialized: Config: ServerConfig {
+    port: 8000,
+    db_url: Url {
+        scheme: "https",
+        cannot_be_a_base: false,
+        username: "",
+        password: None,
+        host: Some(
+            Domain(
+                "example.com",
+            ),
+        ),
+        port: None,
+        path: "/",
+        query: None,
+        fragment: None,
+    },
+    use_http: false,
+    log_level: Info,
+    log_path: Some(
+        "./",
+    ),
+    env_override: true,
+}
+[12:16:16:29:38 Thread#1/ERROR] >> Could not serialize configuration: did not find expected key at line 5 column 37, while parsing a block mapping
+[12:16:16:29:38 Thread#1/ERROR] >> An error has occured, assuming we are not initalized: did not find expected key at line 5 column 37, while parsing a block mapping
+[12:16:16:29:38 Thread#1/ERROR] >> Could not serialize configuration: did not find expected key at line 5 column 37, while parsing a block mapping
+[12:16:16:31:10 Thread#1/DEBUG] >> config: port: 5443
+db_url: https://example.com/
+use_http: false
+log_level: WARN
+log_path: ''
+env_override: true
+
+[12:16:16:31:10 Thread#1/DEBUG] >> Full file path: "/home/chance/.local/share/occult/server/config.server.yml"
+[12:16:16:49:52 Thread#1/DEBUG] >> server config has been serialized: Config: ServerConfig {
+    port: 5443,
+    db_url: Url {
+        scheme: "https",
+        cannot_be_a_base: false,
+        username: "",
+        password: None,
+        host: Some(
+            Domain(
+                "example.com",
+            ),
+        ),
+        port: None,
+        path: "/",
+        query: None,
+        fragment: None,
+    },
+    use_http: false,
+    log_level: Warn,
+    log_path: Some(
+        "",
+    ),
+    env_override: true,
+}
+[12:16:16:49:57 Thread#1/ERROR] >> Invalid port number: User-provided error: Invalid port number: {e}
+[12:16:16:52:08 Thread#1/DEBUG] >> server config has been serialized: Config: ServerConfig {
+    port: 5443,
+    db_url: Url {
+        scheme: "https",
+        cannot_be_a_base: false,
+        username: "",
+        password: None,
+        host: Some(
+            Domain(
+                "example.com",
+            ),
+        ),
+        port: None,
+        path: "/",
+        query: None,
+        fragment: None,
+    },
+    use_http: false,
+    log_level: Warn,
+    log_path: Some(
+        "",
+    ),
+    env_override: true,
+}
+[12:16:16:52:13 Thread#1/ERROR] >> Invalid port number: User-provided error: Invalud port number: number too large to fit in target type
+[12:16:16:52:16 Thread#1/ERROR] >> Invalid port number: User-provided error: Invalud port number: number too large to fit in target type
+[12:16:17:01:47 Thread#1/DEBUG] >> server config has been serialized: Config: ServerConfig {
+    port: Port(
+        5443,
+    ),
+    db_url: Url {
+        scheme: "https",
+        cannot_be_a_base: false,
+        username: "",
+        password: None,
+        host: Some(
+            Domain(
+                "example.com",
+            ),
+        ),
+        port: None,
+        path: "/",
+        query: None,
+        fragment: None,
+    },
+    use_http: false,
+    log_level: Warn,
+    log_path: Some(
+        "",
+    ),
+    env_override: true,
+}
+[12:16:17:01:51 Thread#1/ERROR] >> Invalid port number: User-provided error: Invalud port number: number too large to fit in target type
+[12:16:17:03:03 Thread#1/DEBUG] >> server config has been serialized: Config: ServerConfig {
+    port: Port(
+        5443,
+    ),
+    db_url: Url {
+        scheme: "https",
+        cannot_be_a_base: false,
+        username: "",
+        password: None,
+        host: Some(
+            Domain(
+                "example.com",
+            ),
+        ),
+        port: None,
+        path: "/",
+        query: None,
+        fragment: None,
+    },
+    use_http: false,
+    log_level: Warn,
+    log_path: Some(
+        "",
+    ),
+    env_override: true,
+}
+[12:16:17:03:05 Thread#1/ERROR] >> Invalid port number: Operation was interrupted by the user
+[12:16:17:03:06 Thread#1/ERROR] >> Invalid port number: Operation was interrupted by the user
+[12:16:17:03:06 Thread#1/ERROR] >> Invalid port number: Operation was interrupted by the user
+[12:16:17:04:44 Thread#1/ERROR] >> Invalid port number: Operation was interrupted by the user
+[12:16:17:04:44 Thread#1/ERROR] >> Invalid port number: Operation was interrupted by the user
+[12:16:17:04:44 Thread#1/ERROR] >> Invalid port number: Operation was interrupted by the user
+[12:16:17:04:45 Thread#1/ERROR] >> Invalid port number: Operation was interrupted by the user
+[12:16:17:04:45 Thread#1/ERROR] >> Invalid port number: Operation was interrupted by the user
+[12:16:17:04:45 Thread#1/ERROR] >> Invalid port number: Operation was interrupted by the user
+[12:16:17:04:45 Thread#1/ERROR] >> Invalid port number: Operation was interrupted by the user
+[12:16:17:04:46 Thread#1/ERROR] >> Invalid port number: Operation was interrupted by the user
+[12:16:17:04:46 Thread#1/ERROR] >> Invalid port number: Operation was interrupted by the user
+[12:16:17:04:47 Thread#1/ERROR] >> Invalid port number: Operation was interrupted by the user
+[12:16:17:04:47 Thread#1/ERROR] >> Invalid port number: Operation was interrupted by the user
+[12:16:17:04:47 Thread#1/ERROR] >> Invalid port number: Operation was interrupted by the user
+[12:16:17:04:47 Thread#1/ERROR] >> Invalid port number: Operation was interrupted by the user
+[12:16:17:04:47 Thread#1/ERROR] >> Invalid port number: Operation was interrupted by the user
+[12:16:17:04:47 Thread#1/ERROR] >> Invalid port number: Operation was interrupted by the user
+[12:16:17:04:47 Thread#1/ERROR] >> Invalid port number: Operation was interrupted by the user
+[12:16:17:04:47 Thread#1/ERROR] >> Invalid port number: Operation was interrupted by the user
+[12:16:17:04:47 Thread#1/ERROR] >> Invalid port number: Operation was interrupted by the user
+[12:16:17:04:47 Thread#1/ERROR] >> Invalid port number: Operation was interrupted by the user
+[12:16:17:04:47 Thread#1/ERROR] >> Invalid port number: Operation was interrupted by the user
+[12:16:17:04:47 Thread#1/ERROR] >> Invalid port number: Operation was interrupted by the user
+[12:16:17:04:47 Thread#1/ERROR] >> Invalid port number: Operation was interrupted by the user
+[12:16:17:04:47 Thread#1/ERROR] >> Invalid port number: Operation was interrupted by the user
+[12:16:17:04:47 Thread#1/ERROR] >> Invalid port number: Operation was interrupted by the user
+[12:16:17:04:47 Thread#1/ERROR] >> Invalid port number: Operation was interrupted by the user
+[12:16:17:04:47 Thread#1/ERROR] >> Invalid port number: Operation was interrupted by the user
+[12:16:17:04:49 Thread#1/ERROR] >> Invalid port number: Operation was interrupted by the user
+[12:16:17:04:50 Thread#1/ERROR] >> Invalid port number: User-provided error: Invalud port number: invalid digit found in string
+[12:16:17:04:51 Thread#1/ERROR] >> Invalid port number: User-provided error: Invalud port number: invalid digit found in string
+[12:16:17:04:51 Thread#1/ERROR] >> Invalid port number: Operation was interrupted by the user
+[12:16:17:04:53 Thread#1/ERROR] >> Invalid port number: User-provided error: Invalud port number: invalid digit found in string
+[12:16:17:04:57 Thread#1/DEBUG] >> server config has been serialized: Config: ServerConfig {
+    port: Port(
+        5443,
+    ),
+    db_url: Url {
+        scheme: "https",
+        cannot_be_a_base: false,
+        username: "",
+        password: None,
+        host: Some(
+            Domain(
+                "example.com",
+            ),
+        ),
+        port: None,
+        path: "/",
+        query: None,
+        fragment: None,
+    },
+    use_http: false,
+    log_level: Warn,
+    log_path: Some(
+        "",
+    ),
+    env_override: true,
+}
+[12:16:17:05:20 Thread#1/ERROR] >> Invalid port number: Operation was interrupted by the user
+[12:16:17:05:21 Thread#1/ERROR] >> Invalid port number: Operation was interrupted by the user
+[12:16:17:05:22 Thread#1/ERROR] >> Invalid port number: User-provided error: Invalud port number: invalid digit found in string
+[12:16:17:05:23 Thread#1/ERROR] >> Invalid port number: Operation was interrupted by the user
+[12:16:17:05:24 Thread#1/ERROR] >> Invalid port number: User-provided error: Invalud port number: invalid digit found in string
+[12:16:17:05:33 Thread#1/DEBUG] >> server config has been serialized: Config: ServerConfig {
+    port: Port(
+        5443,
+    ),
+    db_url: Url {
+        scheme: "https",
+        cannot_be_a_base: false,
+        username: "",
+        password: None,
+        host: Some(
+            Domain(
+                "example.com",
+            ),
+        ),
+        port: None,
+        path: "/",
+        query: None,
+        fragment: None,
+    },
+    use_http: false,
+    log_level: Warn,
+    log_path: Some(
+        "",
+    ),
+    env_override: true,
+}
+[12:16:17:06:02 Thread#1/ERROR] >> User-provided error: Invalud port number: invalid digit found in string
+[12:16:17:06:06 Thread#1/ERROR] >> User-provided error: Invalud port number: invalid digit found in string
+[12:16:17:06:32 Thread#1/ERROR] >> Operation was interrupted by the user
+[12:16:17:06:32 Thread#1/ERROR] >> Operation was interrupted by the user
+[12:16:17:06:33 Thread#1/ERROR] >> Operation was interrupted by the user
+[12:16:17:06:35 Thread#1/ERROR] >> User-provided error: Invalud port number: invalid digit found in string
