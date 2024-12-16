@@ -1,0 +1,6 @@
+[submodule "api-server"]
+	path = api-server
+	url = https://github.com/Occult-Chat/api-server
+[submodule "voice_server"]
+	path = voice_server
+	url = https://github.com/Occult-Chat/voice_server
