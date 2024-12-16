@@ -33,12 +33,12 @@ fn strip_color_characters(input: String) -> String {
 pub static LOGGER: ServerLogger = ServerLogger;
 
 pub fn init() -> Result<(), SetLoggerError> {
-    log::set_logger(&LOGGER).map(|()| log::set_max_level(LevelFilter::Info))
+    log::set_logger(&LOGGER).map(|()| log::set_max_level(LevelFilter::Trace))
 }
 
 impl log::Log for ServerLogger {
     fn enabled(&self, metadata: &log::Metadata) -> bool {
-        metadata.level() <= log::Level::Info
+        metadata.level() <= log::Level::Trace
     }
 
     fn log(&self, record: &log::Record) {

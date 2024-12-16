@@ -5,7 +5,7 @@ edition = "2021"
 
 [dependencies]
 rocket = { version = "0.5.1", features = ["json"] }
-tokio = { version = "1.41.1", features = ["rt-multi-thread"] }
+tokio = { version = "1.41.1", features = ["full", "rt-multi-thread"] }
 anyhow = { workspace = true }
 serde = { workspace = true, features = ["derive"] }
 dirs-next = { workspace = true }
@@ -22,5 +22,5 @@ colored.workspace = true
 chrono = "0.4.39"
 thiserror.workspace = true
 uuid = { version = "1.11.0", features = ["serde"] }
-sqlx = { version = "0.8.2", features = ["mysql"] }
+sqlx = { version = "0.8.2", features = ["mysql", "runtime-tokio"] }
 oauth2 = "4.4.2"

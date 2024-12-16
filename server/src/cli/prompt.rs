@@ -13,8 +13,6 @@ pub fn create_config_interactive() -> Result<ServerConfig> {
         .prompt()?
         .parse()?;
 
-
-
     let input_url = Text::new("What will the  for your repository be?")
         .with_initial_value("https://")
         .prompt()
@@ -72,3 +70,4 @@ pub fn create_config_interactive() -> Result<ServerConfig> {
 pub fn create_config() -> ServerConfig {
     ServerConfig::default()
 }
+

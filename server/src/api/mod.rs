@@ -18,7 +18,7 @@ fn get_package(package: &str, version: &str) -> String {
     response
 }
 
-pub async fn start_listener(config: ServerConfig) -> Result<()> {
+pub async fn start_listener(config: &ServerConfig) -> Result<()> {
     let log_level = &config.log_level.as_str().to_lowercase();
     println!("Starting occult server. Current log level: {log_level}");
     log::set_max_level(config.log_level);
