@@ -1,0 +1,951 @@
+openapi: 3.0.3
+info:
+  title: Occult API
+  version: '0.1.0'
+  description: |
+    REST API for Occult application. Real-time message delivery is handled 
+    separately via WebSocket connections.
+
+servers:
+  - url: https://api.occult.chat/v1
+    description: Production server
+  - url: http://localhost:3000/api/v1
+    description: Development server
+
+security:
+  - bearerAuth: []
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        username:
+          type: string
+          minLength: 3
+          maxLength: 32
+        displayName:
+          type: string
+          maxLength: 32
+        email:
+          type: string
+          format: email
+        avatar:
+          type: string
+          format: uri
+        status:
+          type: string
+          enum: [online, idle, dnd, offline]
+        customStatus:
+          type: string
+          maxLength: 128
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+      required:
+        - id
+        - username
+        - email
+        - status
+
+    Server:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          minLength: 1
+          maxLength: 100
+        description:
+          type: string
+          maxLength: 1024
+        icon:
+          type: string
+          format: uri
+        ownerId:
+          type: string
+          format: uuid
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+      required:
+        - id
+        - name
+        - ownerId
+
+    Channel:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          minLength: 1
+          maxLength: 100
+          pattern: '^[a-z0-9-]+$'
+        type:
+          type: string
+          enum: [text, voice, announcement]
+        serverId:
+          type: string
+          format: uuid
+        topic:
+          type: string
+          maxLength: 1024
+        slowMode:
+          type: integer
+          minimum: 0
+          maximum: 21600
+          description: Slow mode delay in seconds (max 6 hours)
+        isPrivate:
+          type: boolean
+          default: false
+        lastMessageId:
+          type: string
+          format: uuid
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+      required:
+        - id
+        - name
+        - type
+        - serverId
+
+    Message:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        content:
+          type: string
+          maxLength: 4000
+        authorId:
+          type: string
+          format: uuid
+        channelId:
+          type: string
+          format: uuid
+        replyToId:
+          type: string
+          format: uuid
+        isPinned:
+          type: boolean
+          default: false
+        createdAt:
+          type: string
+          format: date-time
+        editedAt:
+          type: string
+          format: date-time
+        attachments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Attachment'
+          maxItems: 10
+        mentions:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+        reactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Reaction'
+      required:
+        - id
+        - content
+        - authorId
+        - channelId
+        - createdAt
+
+    Attachment:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        type:
+          type: string
+          enum: [image, video, file]
+        url:
+          type: string
+          format: uri
+        filename:
+          type: string
+          maxLength: 255
+        size:
+          type: integer
+          maximum: 26214400  # 25MB
+        mimeType:
+          type: string
+        width:
+          type: integer
+          description: For image/video attachments
+        height:
+          type: integer
+          description: For image/video attachments
+        duration:
+          type: integer
+          description: For video attachments (in seconds)
+      required:
+        - id
+        - type
+        - url
+        - filename
+        - size
+        - mimeType
+
+    Reaction:
+      type: object
+      properties:
+        emoji:
+          type: string
+        count:
+          type: integer
+        hasReacted:
+          type: boolean
+      required:
+        - emoji
+        - count
+        - hasReacted
+
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        details:
+          type: object
+      required:
+        - code
+        - message
+
+paths:
+  /auth/login:
+    post:
+      tags: [Authentication]
+      summary: Login with username/email and password
+      operationId: login
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                email:
+                  type: string
+                  format: email
+                password:
+                  type: string
+                  format: password
+                  minLength: 8
+              oneOf:
+                - required: [username, password]
+                - required: [email, password]
+      responses:
+        '200':
+          description: Successfully authenticated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+                  user:
+                    $ref: '#/components/schemas/User'
+        '401':
+          description: Invalid credentials
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /auth/register:
+    post:
+      tags: [Authentication]
+      summary: Register a new user account
+      operationId: register
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  minLength: 3
+                  maxLength: 32
+                email:
+                  type: string
+                  format: email
+                password:
+                  type: string
+                  format: password
+                  minLength: 8
+              required:
+                - username
+                - email
+                - password
+      responses:
+        '201':
+          description: Account created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '409':
+          description: Username or email already taken
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /servers:
+    get:
+      tags: [Servers]
+      summary: Get all servers the user is a member of
+      operationId: getServers
+      responses:
+        '200':
+          description: List of servers
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Server'
+
+    post:
+      tags: [Servers]
+      summary: Create a new server
+      operationId: createServer
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  minLength: 1
+                  maxLength: 100
+                description:
+                  type: string
+                  maxLength: 1024
+                icon:
+                  type: string
+                  format: binary
+              required:
+                - name
+      responses:
+        '201':
+          description: Server created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Server'
+
+  /servers/{serverId}:
+    parameters:
+      - name: serverId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+    
+    get:
+      tags: [Servers]
+      summary: Get server details
+      operationId: getServer
+      responses:
+        '200':
+          description: Server details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Server'
+        '404':
+          description: Server not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+    patch:
+      tags: [Servers]
+      summary: Update server settings
+      operationId: updateServer
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  minLength: 1
+                  maxLength: 100
+                description:
+                  type: string
+                  maxLength: 1024
+                icon:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: Server updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Server'
+
+    delete:
+      tags: [Servers]
+      summary: Delete server
+      operationId: deleteServer
+      responses:
+        '204':
+          description: Server deleted
+
+  /servers/{serverId}/channels:
+    parameters:
+      - name: serverId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+
+    get:
+      tags: [Channels]
+      summary: Get all channels in a server
+      operationId: getChannels
+      responses:
+        '200':
+          description: List of channels
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Channel'
+
+    post:
+      tags: [Channels]
+      summary: Create a new channel
+      operationId: createChannel
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  minLength: 1
+                  maxLength: 100
+                  pattern: '^[a-z0-9-]+$'
+                type:
+                  type: string
+                  enum: [text, voice, announcement]
+                topic:
+                  type: string
+                  maxLength: 1024
+                isPrivate:
+                  type: boolean
+              required:
+                - name
+                - type
+      responses:
+        '201':
+          description: Channel created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Channel'
+
+  /channels/{channelId}:
+    parameters:
+      - name: channelId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+
+    get:
+      tags: [Channels]
+      summary: Get channel details
+      operationId: getChannel
+      responses:
+        '200':
+          description: Channel details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Channel'
+
+    patch:
+      tags: [Channels]
+      summary: Update channel settings
+      operationId: updateChannel
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  minLength: 1
+                  maxLength: 100
+                  pattern: '^[a-z0-9-]+$'
+                topic:
+                  type: string
+                  maxLength: 1024
+                slowMode:
+                  type: integer
+                  minimum: 0
+                  maximum: 21600
+      responses:
+        '200':
+          description: Channel updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Channel'
+
+    delete:
+      tags: [Channels]
+      summary: Delete channel
+      operationId: deleteChannel
+      responses:
+        '204':
+          description: Channel deleted
+
+  /channels/{channelId}/messages:
+    parameters:
+      - name: channelId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+
+    get:
+      tags: [Messages]
+      summary: Get messages in a channel
+      operationId: getMessages
+      parameters:
+        - name: before
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: after
+          in: query
+          schema:
+            type: string
+            format: uuid
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 50
+      responses:
+        '200':
+          description: List of messages
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Message'
+
+    post:
+      tags: [Messages]
+      summary: Send a message
+      operationId: sendMessage
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                content:
+                  type: string
+                  maxLength: 4000
+                replyToId:
+                  type: string
+                  format: uuid
+                attachments:
+                  type: array
+                  items:
+                    type: string
+                    format: binary
+                  maxItems: 10
+              required:
+                - content
+      responses:
+        '201':
+          description: Message sent
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+
+  /channels/{channelId}/messages/{messageId}:
+    parameters:
+      - name: channelId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: messageId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+
+    patch:
+      tags: [Messages]
+      summary: Edit a message
+      operationId: editMessage
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                content:
+                  type: string
+                  maxLength: 4000
+              required:
+                - content
+      responses:
+        '200':
+          description: Message updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Message'
+
+    delete:
+      tags: [Messages]
+      summary: Delete a message
+      operationId: deleteMessage
+      responses:
+        '204':
+          description: Message deleted
+
+  /channels/{channelId}/pins/{messageId}:
+    parameters:
+      - name: channelId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: messageId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+
+    put:
+      tags: [Messages]
+      summary: Pin a message
+      operationId: pinMessage
+      responses:
+        '204':
+          description: Message pinned
+
+    delete:
+      tags: [Messages]
+      summary: Unpin a message
+      operationId: unpinMessage
+      responses:
+        '204':
+          description: Message unpinned
+
+  /channels/{channelId}/typing:
+    parameters:
+      - name: channelId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+    post:
+        tags: [Channels]
+        summary: Indicate that the user is typing
+        operationId: sendTypingIndicator
+        responses:
+          '204':
+            description: Typing indicator sent
+            
+  /channels/{channelId}/reactions/{messageId}/{emoji}:
+    parameters:
+      - name: channelId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: messageId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: emoji
+        in: path
+        required: true
+        schema:
+          type: string
+
+    put:
+      tags: [Messages]
+      summary: Add a reaction to a message
+      operationId: addReaction
+      responses:
+        '204':
+          description: Reaction added
+
+    delete:
+      tags: [Messages]
+      summary: Remove a reaction from a message
+      operationId: removeReaction
+      responses:
+        '204':
+          description: Reaction removed
+
+  /users/@me:
+    get:
+      tags: [Users]
+      summary: Get current user's profile
+      operationId: getCurrentUser
+      responses:
+        '200':
+          description: User profile
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+
+    patch:
+      tags: [Users]
+      summary: Update current user's profile
+      operationId: updateCurrentUser
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  minLength: 3
+                  maxLength: 32
+                avatar:
+                  type: string
+                  format: binary
+                status:
+                  type: string
+                  enum: [online, idle, dnd, offline]
+                customStatus:
+                  type: string
+                  maxLength: 128
+      responses:
+        '200':
+          description: Profile updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+
+  /users/@me/servers:
+    post:
+      tags: [Servers]
+      summary: Join a server using an invite code
+      operationId: joinServer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                inviteCode:
+                  type: string
+                  pattern: '^[A-Za-z0-9]{8,}$'
+              required:
+                - inviteCode
+      responses:
+        '200':
+          description: Server joined
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Server'
+        '404':
+          description: Invalid invite code
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /servers/{serverId}/invites:
+    parameters:
+      - name: serverId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+
+    post:
+      tags: [Servers]
+      summary: Create a server invite
+      operationId: createInvite
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                maxUses:
+                  type: integer
+                  minimum: 0
+                  description: 0 for unlimited uses
+                expiresIn:
+                  type: integer
+                  minimum: 0
+                  description: Duration in seconds, 0 for never expires
+      responses:
+        '201':
+          description: Invite created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: string
+                  expiresAt:
+                    type: string
+                    format: date-time
+                  maxUses:
+                    type: integer
+                  uses:
+                    type: integer
+                required:
+                  - code
+
+  /channels/{channelId}/attachments:
+    parameters:
+      - name: channelId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+
+    post:
+      tags: [Messages]
+      summary: Upload file attachments
+      operationId: uploadAttachments
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                files:
+                  type: array
+                  items:
+                    type: string
+                    format: binary
+                  maxItems: 10
+              required:
+                - files
+      responses:
+        '201':
+          description: Attachments uploaded
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Attachment'
+
+  /users/{userId}:
+    parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+
+    get:
+      tags: [Users]
+      summary: Get user profile
+      operationId: getUser
+      responses:
+        '200':
+          description: User profile
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '404':
+          description: User not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'

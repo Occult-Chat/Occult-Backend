@@ -1,0 +1,62 @@
+[12:16:00:40:33 Thread#1/INFO] >> Running server
+[12:16:00:40:53 Thread#1/INFO] >> Running server
+[12:16:00:41:18 Thread#1/INFO] >> Running server
+[12:16:00:51:01 Thread#1/INFO] >> Running server
+[12:16:00:51:47 Thread#1/INFO] >> Running server
+[12:16:00:51:59 Thread#1/INFO] >> Configured for debug.
+[12:16:00:51:59 Thread#1/INFO] >> address: 127.0.0.1
+[12:16:00:51:59 Thread#1/INFO] >> port: 8000
+[12:16:00:51:59 Thread#1/INFO] >> workers: 32
+[12:16:00:51:59 Thread#1/INFO] >> max blocking threads: 512
+[12:16:00:51:59 Thread#1/INFO] >> ident: Rocket
+[12:16:00:51:59 Thread#1/INFO] >> IP header: X-Real-IP
+[12:16:00:51:59 Thread#1/INFO] >> limits: bytes = 8KiB, data-form = 2MiB, file = 1MiB, form = 32KiB, json = 1MiB, msgpack = 1MiB, string = 8KiB
+[12:16:00:51:59 Thread#1/INFO] >> temp dir: C:\Users\redst\AppData\Local\Temp\
+[12:16:00:51:59 Thread#1/INFO] >> http/2: true
+[12:16:00:51:59 Thread#1/INFO] >> keep-alive: 5s
+[12:16:00:51:59 Thread#1/INFO] >> tls: disabled
+[12:16:00:51:59 Thread#1/INFO] >> shutdown: ctrlc = true, force = true, grace = 2s, mercy = 3s
+[12:16:00:51:59 Thread#1/INFO] >> log level: normal
+[12:16:00:51:59 Thread#1/INFO] >> cli colors: true
+[12:16:00:51:59 Thread#1/INFO] >> Routes:
+[12:16:00:51:59 Thread#1/INFO] >> (identity) GET /
+[12:16:00:51:59 Thread#1/INFO] >> (get_package) GET /get/<package>/<version>
+[12:16:00:51:59 Thread#1/INFO] >> Fairings:
+[12:16:00:51:59 Thread#1/INFO] >> Shield (liftoff, response, singleton)
+[12:16:00:51:59 Thread#1/INFO] >> Shield:
+[12:16:00:51:59 Thread#1/INFO] >> X-Content-Type-Options: nosniff
+[12:16:00:51:59 Thread#1/INFO] >> X-Frame-Options: SAMEORIGIN
+[12:16:00:51:59 Thread#1/INFO] >> Permissions-Policy: interest-cohort=()
+[12:16:00:51:59 Thread#1/WARN] >> Rocket has launched from http://127.0.0.1:8000
+[12:16:00:52:07 Thread#33/WARN] >> Received SIGINT. Requesting shutdown.
+[12:16:00:52:07 Thread#1/INFO] >> Shutdown requested. Waiting for pending I/O...
+[12:16:00:52:09 Thread#1/INFO] >> Graceful shutdown completed successfully.
+[12:16:00:52:43 Thread#1/INFO] >> Running server
+[12:16:00:52:43 Thread#1/INFO] >> Configured for debug.
+[12:16:00:52:43 Thread#1/INFO] >> address: 127.0.0.1
+[12:16:00:52:43 Thread#1/INFO] >> port: 7000
+[12:16:00:52:43 Thread#1/INFO] >> workers: 32
+[12:16:00:52:43 Thread#1/INFO] >> max blocking threads: 512
+[12:16:00:52:43 Thread#1/INFO] >> ident: Rocket
+[12:16:00:52:43 Thread#1/INFO] >> IP header: X-Real-IP
+[12:16:00:52:43 Thread#1/INFO] >> limits: bytes = 8KiB, data-form = 2MiB, file = 1MiB, form = 32KiB, json = 1MiB, msgpack = 1MiB, string = 8KiB
+[12:16:00:52:43 Thread#1/INFO] >> temp dir: C:\Users\redst\AppData\Local\Temp\
+[12:16:00:52:43 Thread#1/INFO] >> http/2: true
+[12:16:00:52:43 Thread#1/INFO] >> keep-alive: 5s
+[12:16:00:52:43 Thread#1/INFO] >> tls: disabled
+[12:16:00:52:43 Thread#1/INFO] >> shutdown: ctrlc = true, force = true, grace = 2s, mercy = 3s
+[12:16:00:52:43 Thread#1/INFO] >> log level: normal
+[12:16:00:52:43 Thread#1/INFO] >> cli colors: true
+[12:16:00:52:43 Thread#1/INFO] >> Routes:
+[12:16:00:52:43 Thread#1/INFO] >> (identity) GET /
+[12:16:00:52:43 Thread#1/INFO] >> (get_package) GET /get/<package>/<version>
+[12:16:00:52:43 Thread#1/INFO] >> Fairings:
+[12:16:00:52:43 Thread#1/INFO] >> Shield (liftoff, response, singleton)
+[12:16:00:52:43 Thread#1/INFO] >> Shield:
+[12:16:00:52:43 Thread#1/INFO] >> Permissions-Policy: interest-cohort=()
+[12:16:00:52:43 Thread#1/INFO] >> X-Frame-Options: SAMEORIGIN
+[12:16:00:52:43 Thread#1/INFO] >> X-Content-Type-Options: nosniff
+[12:16:00:52:43 Thread#1/WARN] >> Rocket has launched from http://127.0.0.1:7000
+[12:16:01:12:33 Thread#33/WARN] >> Received SIGINT. Requesting shutdown.
+[12:16:01:12:33 Thread#1/INFO] >> Shutdown requested. Waiting for pending I/O...
+[12:16:01:12:33 Thread#1/INFO] >> Graceful shutdown completed successfully.

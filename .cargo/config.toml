@@ -1,0 +1,2 @@
+[alias]
+host = "run --bin occult-server -j99 --"

@@ -1,0 +1,13 @@
+[workspace]
+members = ["server", "lib", "voice_server"]
+
+[workspace.dependencies]
+anyhow = "1.0.93"
+dirs-next = "2.0.0"
+serde = { version = "1.0.215", features = ["derive"] }
+toml = "0.8.19"
+thiserror = "2.0.3"
+log = {version = "0.4.22", features = ["serde"]}
+env_logger = "0.11.5"
+colored = "2"
+rayon = "1"
