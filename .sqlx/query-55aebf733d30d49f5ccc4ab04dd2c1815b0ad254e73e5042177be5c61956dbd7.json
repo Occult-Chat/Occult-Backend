@@ -1,0 +1,12 @@
+{
+  "db_name": "MySQL",
+  "query": "DELETE FROM reactions \n         WHERE message_id = ? AND user_id = ? AND emoji = ?",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Right": 3
+    },
+    "nullable": []
+  },
+  "hash": "55aebf733d30d49f5ccc4ab04dd2c1815b0ad254e73e5042177be5c61956dbd7"
+}

@@ -1,0 +1,12 @@
+{
+  "db_name": "MySQL",
+  "query": "INSERT INTO reactions (message_id, user_id, emoji) VALUES (?, ?, ?)",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Right": 3
+    },
+    "nullable": []
+  },
+  "hash": "b92bac985157bf184ce41fd947e2412ce89a421e9c237c65835d2221422c856d"
+}

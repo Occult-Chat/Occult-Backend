@@ -490,3 +490,760 @@ env_override: true
 [12:16:17:06:32 Thread#1/ERROR] >> Operation was interrupted by the user
 [12:16:17:06:33 Thread#1/ERROR] >> Operation was interrupted by the user
 [12:16:17:06:35 Thread#1/ERROR] >> User-provided error: Invalud port number: invalid digit found in string
+[12:17:17:03:00 Thread#1/INFO] >> Running server
+[12:17:17:03:00 Thread#1/ERR] >> the server config did not exist: "/home/chance/.local/share/occult/server/config.server.yml"
+[12:17:17:03:36 Thread#1/INFO] >> Running server
+[12:17:17:03:36 Thread#1/ERR] >> the server config did not exist: "/home/chance/.local/share/occult/server/config.server.yml"
+[12:17:17:04:19 Thread#1/DEBUG] >> config: http_port: 8000
+use_http: false
+log_level: TRACE
+log_path: './'
+env_override: true
+db_url: localhost
+db_port: 3306
+db_user: root
+db_pass: occult
+db_name: occult_db
+
+[12:17:17:04:19 Thread#1/DEBUG] >> Path did not yet exist: "/home/chance/.local/share/occult/server"
+[12:17:17:04:19 Thread#1/DEBUG] >> Full file path: "/home/chance/.local/share/occult/server/config.server.yml"
+[12:17:17:04:19 Thread#1/DEBUG] >> server_config = ServerConfig {
+    http_port: Port(
+        8000,
+    ),
+    use_http: false,
+    log_level: Trace,
+    log_path: Some(
+        "./",
+    ),
+    env_override: true,
+    db_url: "localhost",
+    db_port: Port(
+        3306,
+    ),
+    db_user: "root",
+    db_pass: "occult",
+    db_name: "occult_db",
+}
+[12:17:17:04:19 Thread#1/INFO] >> 🔧 Configured for debug.
+[12:17:17:04:19 Thread#1/INFO] >> address: 0.0.0.0
+[12:17:17:04:19 Thread#1/INFO] >> port: 8000
+[12:17:17:04:19 Thread#1/INFO] >> workers: 16
+[12:17:17:04:19 Thread#1/INFO] >> max blocking threads: 512
+[12:17:17:04:19 Thread#1/INFO] >> ident: Rocket
+[12:17:17:04:19 Thread#1/INFO] >> IP header: X-Real-IP
+[12:17:17:04:19 Thread#1/INFO] >> limits: bytes = 8KiB, data-form = 2MiB, file = 1MiB, form = 32KiB, json = 1MiB, msgpack = 1MiB, string = 8KiB
+[12:17:17:04:19 Thread#1/INFO] >> temp dir: /tmp
+[12:17:17:04:19 Thread#1/INFO] >> http/2: true
+[12:17:17:04:19 Thread#1/INFO] >> keep-alive: 5s
+[12:17:17:04:19 Thread#1/INFO] >> tls: disabled
+[12:17:17:04:19 Thread#1/INFO] >> shutdown: ctrlc = true, force = true, signals = [SIGTERM], grace = 2s, mercy = 3s
+[12:17:17:04:19 Thread#1/INFO] >> log level: normal
+[12:17:17:04:19 Thread#1/INFO] >> cli colors: true
+[12:17:17:04:19 Thread#1/INFO] >> 📬 Routes:
+[12:17:17:04:19 Thread#1/INFO] >> (get_servers) GET /servers
+[12:17:17:04:19 Thread#1/INFO] >> (create_server) POST /servers
+[12:17:17:04:19 Thread#1/INFO] >> (get_current_user) GET /users/@me
+[12:17:17:04:19 Thread#1/INFO] >> (update_current_user) PATCH /users/@me
+[12:17:17:04:19 Thread#1/INFO] >> (login) POST /auth/login application/json
+[12:17:17:04:19 Thread#1/INFO] >> (register) POST /auth/register application/json
+[12:17:17:04:19 Thread#1/INFO] >> (get_user) GET /users/<user_id>
+[12:17:17:04:19 Thread#1/INFO] >> (get_server) GET /servers/<server_id>
+[12:17:17:04:19 Thread#1/INFO] >> (update_server) PATCH /servers/<server_id>
+[12:17:17:04:19 Thread#1/INFO] >> (delete_server) DELETE /servers/<server_id>
+[12:17:17:04:19 Thread#1/INFO] >> (get_channel) GET /channels/<channel_id>
+[12:17:17:04:19 Thread#1/INFO] >> (update_channel) PATCH /channels/<channel_id> application/json
+[12:17:17:04:19 Thread#1/INFO] >> (delete_channel) DELETE /channels/<channel_id>
+[12:17:17:04:19 Thread#1/INFO] >> (join_server) POST /users/@me/servers application/json
+[12:17:17:04:19 Thread#1/INFO] >> (create_invite) POST /servers/<server_id>/invites application/json
+[12:17:17:04:19 Thread#1/INFO] >> (get_channels) GET /servers/<server_id>/channels
+[12:17:17:04:19 Thread#1/INFO] >> (create_channel) POST /servers/<server_id>/channels application/json
+[12:17:17:04:19 Thread#1/INFO] >> (send_typing_indicator) POST /channels/<channel_id>/typing
+[12:17:17:04:19 Thread#1/INFO] >> (get_messages) GET /channels/<channel_id>/messages?<before>&<after>&<limit>
+[12:17:17:04:19 Thread#1/INFO] >> (upload_attachments) POST /channels/<channel_id>/attachments
+[12:17:17:04:19 Thread#1/INFO] >> (pin_message) PUT /channels/<channel_id>/pins/<message_id>
+[12:17:17:04:19 Thread#1/INFO] >> (unpin_message) DELETE /channels/<channel_id>/pins/<message_id>
+[12:17:17:04:19 Thread#1/INFO] >> (update_message) PATCH /channels/<channel_id>/messages/<message_id> application/json
+[12:17:17:04:19 Thread#1/INFO] >> (delete_message) DELETE /channels/<channel_id>/messages/<message_id>
+[12:17:17:04:19 Thread#1/INFO] >> (create_message) POST /servers/<server_id>/channels/<channel_id>/messages
+[12:17:17:04:19 Thread#1/INFO] >> (add_reaction) PUT /channels/<channel_id>/reactions/<message_id>/<emoji>
+[12:17:17:04:19 Thread#1/INFO] >> (remove_reaction) DELETE /channels/<channel_id>/reactions/<message_id>/<emoji>
+[12:17:17:04:19 Thread#1/INFO] >> 📡 Fairings:
+[12:17:17:04:19 Thread#1/INFO] >> Shield (liftoff, response, singleton)
+[12:17:17:04:19 Thread#1/INFO] >> 🛡️ Shield:
+[12:17:17:04:19 Thread#1/INFO] >> X-Frame-Options: SAMEORIGIN
+[12:17:17:04:19 Thread#1/INFO] >> Permissions-Policy: interest-cohort=()
+[12:17:17:04:19 Thread#1/INFO] >> X-Content-Type-Options: nosniff
+[12:17:17:04:19 Thread#1/WARN] >> 🚀 Rocket has launched from http://0.0.0.0:8000
+[12:17:17:04:19 Thread#1/ERR] >> Starting DB on port Port(
+    3306,
+)
+[12:17:17:06:30 Thread#1/INFO] >> Running server
+[12:17:17:06:30 Thread#1/DEBUG] >> server config has been serialized: Config: ServerConfig {
+    http_port: Port(
+        8000,
+    ),
+    use_http: false,
+    log_level: Trace,
+    log_path: Some(
+        "./",
+    ),
+    env_override: true,
+    db_url: "localhost",
+    db_port: Port(
+        3306,
+    ),
+    db_user: "root",
+    db_pass: "occult",
+    db_name: "occult_db",
+}
+[12:17:17:06:30 Thread#1/DEBUG] >> server_config = ServerConfig {
+    http_port: Port(
+        8000,
+    ),
+    use_http: false,
+    log_level: Trace,
+    log_path: Some(
+        "./",
+    ),
+    env_override: true,
+    db_url: "localhost",
+    db_port: Port(
+        3306,
+    ),
+    db_user: "root",
+    db_pass: "occult",
+    db_name: "occult_db",
+}
+[12:17:17:06:30 Thread#1/INFO] >> 🔧 Configured for debug.
+[12:17:17:06:30 Thread#1/INFO] >> address: 0.0.0.0
+[12:17:17:06:30 Thread#1/INFO] >> port: 8000
+[12:17:17:06:30 Thread#1/INFO] >> workers: 16
+[12:17:17:06:30 Thread#1/INFO] >> max blocking threads: 512
+[12:17:17:06:30 Thread#1/INFO] >> ident: Rocket
+[12:17:17:06:30 Thread#1/INFO] >> IP header: X-Real-IP
+[12:17:17:06:30 Thread#1/INFO] >> limits: bytes = 8KiB, data-form = 2MiB, file = 1MiB, form = 32KiB, json = 1MiB, msgpack = 1MiB, string = 8KiB
+[12:17:17:06:30 Thread#1/INFO] >> temp dir: /tmp
+[12:17:17:06:30 Thread#1/INFO] >> http/2: true
+[12:17:17:06:30 Thread#1/INFO] >> keep-alive: 5s
+[12:17:17:06:30 Thread#1/INFO] >> tls: disabled
+[12:17:17:06:30 Thread#1/INFO] >> shutdown: ctrlc = true, force = true, signals = [SIGTERM], grace = 2s, mercy = 3s
+[12:17:17:06:30 Thread#1/INFO] >> log level: normal
+[12:17:17:06:30 Thread#1/INFO] >> cli colors: true
+[12:17:17:06:30 Thread#1/INFO] >> 📬 Routes:
+[12:17:17:06:30 Thread#1/INFO] >> (get_servers) GET /servers
+[12:17:17:06:30 Thread#1/INFO] >> (create_server) POST /servers
+[12:17:17:06:30 Thread#1/INFO] >> (get_current_user) GET /users/@me
+[12:17:17:06:30 Thread#1/INFO] >> (update_current_user) PATCH /users/@me
+[12:17:17:06:30 Thread#1/INFO] >> (login) POST /auth/login application/json
+[12:17:17:06:30 Thread#1/INFO] >> (register) POST /auth/register application/json
+[12:17:17:06:30 Thread#1/INFO] >> (get_user) GET /users/<user_id>
+[12:17:17:06:30 Thread#1/INFO] >> (get_server) GET /servers/<server_id>
+[12:17:17:06:30 Thread#1/INFO] >> (update_server) PATCH /servers/<server_id>
+[12:17:17:06:30 Thread#1/INFO] >> (delete_server) DELETE /servers/<server_id>
+[12:17:17:06:30 Thread#1/INFO] >> (get_channel) GET /channels/<channel_id>
+[12:17:17:06:30 Thread#1/INFO] >> (update_channel) PATCH /channels/<channel_id> application/json
+[12:17:17:06:30 Thread#1/INFO] >> (delete_channel) DELETE /channels/<channel_id>
+[12:17:17:06:30 Thread#1/INFO] >> (join_server) POST /users/@me/servers application/json
+[12:17:17:06:30 Thread#1/INFO] >> (create_invite) POST /servers/<server_id>/invites application/json
+[12:17:17:06:30 Thread#1/INFO] >> (get_channels) GET /servers/<server_id>/channels
+[12:17:17:06:30 Thread#1/INFO] >> (create_channel) POST /servers/<server_id>/channels application/json
+[12:17:17:06:30 Thread#1/INFO] >> (send_typing_indicator) POST /channels/<channel_id>/typing
+[12:17:17:06:30 Thread#1/INFO] >> (get_messages) GET /channels/<channel_id>/messages?<before>&<after>&<limit>
+[12:17:17:06:30 Thread#1/INFO] >> (upload_attachments) POST /channels/<channel_id>/attachments
+[12:17:17:06:30 Thread#1/INFO] >> (pin_message) PUT /channels/<channel_id>/pins/<message_id>
+[12:17:17:06:31 Thread#1/INFO] >> (unpin_message) DELETE /channels/<channel_id>/pins/<message_id>
+[12:17:17:06:31 Thread#1/INFO] >> (update_message) PATCH /channels/<channel_id>/messages/<message_id> application/json
+[12:17:17:06:31 Thread#1/INFO] >> (delete_message) DELETE /channels/<channel_id>/messages/<message_id>
+[12:17:17:06:31 Thread#1/INFO] >> (create_message) POST /servers/<server_id>/channels/<channel_id>/messages
+[12:17:17:06:31 Thread#1/INFO] >> (add_reaction) PUT /channels/<channel_id>/reactions/<message_id>/<emoji>
+[12:17:17:06:31 Thread#1/INFO] >> (remove_reaction) DELETE /channels/<channel_id>/reactions/<message_id>/<emoji>
+[12:17:17:06:31 Thread#1/INFO] >> 📡 Fairings:
+[12:17:17:06:31 Thread#1/INFO] >> Shield (liftoff, response, singleton)
+[12:17:17:06:31 Thread#1/INFO] >> 🛡️ Shield:
+[12:17:17:06:31 Thread#1/INFO] >> X-Content-Type-Options: nosniff
+[12:17:17:06:31 Thread#1/INFO] >> Permissions-Policy: interest-cohort=()
+[12:17:17:06:31 Thread#1/INFO] >> X-Frame-Options: SAMEORIGIN
+[12:17:17:06:31 Thread#1/WARN] >> 🚀 Rocket has launched from http://0.0.0.0:8000
+[12:17:17:06:31 Thread#1/ERR] >> Starting DB on port Port(
+    3306,
+)
+[12:17:17:06:31 Thread#1/DEBUG] >> attempt to connect to the db!
+[12:17:17:06:31 Thread#1/DEBUG] >> not performing TLS upgrade: TLS support not compiled in
+[12:17:17:07:03 Thread#1/DEBUG] >> server config has been serialized: Config: ServerConfig {
+    http_port: Port(
+        8000,
+    ),
+    use_http: false,
+    log_level: Trace,
+    log_path: Some(
+        "./",
+    ),
+    env_override: true,
+    db_url: "localhost",
+    db_port: Port(
+        3306,
+    ),
+    db_user: "root",
+    db_pass: "occult",
+    db_name: "occult_db",
+}
+[12:17:17:07:33 Thread#1/DEBUG] >> config: http_port: 8000
+use_http: false
+log_level: TRACE
+log_path: ''
+env_override: true
+db_url: localhost
+db_port: 3306
+db_user: occult
+db_pass: occult
+db_name: occult_db
+
+[12:17:17:07:33 Thread#1/DEBUG] >> Full file path: "/home/chance/.local/share/occult/server/config.server.yml"
+[12:17:17:07:39 Thread#1/INFO] >> Running server
+[12:17:17:07:39 Thread#1/DEBUG] >> server config has been serialized: Config: ServerConfig {
+    http_port: Port(
+        8000,
+    ),
+    use_http: false,
+    log_level: Trace,
+    log_path: Some(
+        "",
+    ),
+    env_override: true,
+    db_url: "localhost",
+    db_port: Port(
+        3306,
+    ),
+    db_user: "occult",
+    db_pass: "occult",
+    db_name: "occult_db",
+}
+[12:17:17:07:39 Thread#1/DEBUG] >> server_config = ServerConfig {
+    http_port: Port(
+        8000,
+    ),
+    use_http: false,
+    log_level: Trace,
+    log_path: Some(
+        "",
+    ),
+    env_override: true,
+    db_url: "localhost",
+    db_port: Port(
+        3306,
+    ),
+    db_user: "occult",
+    db_pass: "occult",
+    db_name: "occult_db",
+}
+[12:17:17:07:39 Thread#1/INFO] >> 🔧 Configured for debug.
+[12:17:17:07:39 Thread#1/INFO] >> address: 0.0.0.0
+[12:17:17:07:39 Thread#1/INFO] >> port: 8000
+[12:17:17:07:39 Thread#1/INFO] >> workers: 16
+[12:17:17:07:39 Thread#1/INFO] >> max blocking threads: 512
+[12:17:17:07:39 Thread#1/INFO] >> ident: Rocket
+[12:17:17:07:39 Thread#1/INFO] >> IP header: X-Real-IP
+[12:17:17:07:39 Thread#1/INFO] >> limits: bytes = 8KiB, data-form = 2MiB, file = 1MiB, form = 32KiB, json = 1MiB, msgpack = 1MiB, string = 8KiB
+[12:17:17:07:39 Thread#1/INFO] >> temp dir: /tmp
+[12:17:17:07:39 Thread#1/INFO] >> http/2: true
+[12:17:17:07:39 Thread#1/INFO] >> keep-alive: 5s
+[12:17:17:07:39 Thread#1/INFO] >> tls: disabled
+[12:17:17:07:39 Thread#1/INFO] >> shutdown: ctrlc = true, force = true, signals = [SIGTERM], grace = 2s, mercy = 3s
+[12:17:17:07:39 Thread#1/INFO] >> log level: normal
+[12:17:17:07:39 Thread#1/INFO] >> cli colors: true
+[12:17:17:07:39 Thread#1/INFO] >> 📬 Routes:
+[12:17:17:07:39 Thread#1/INFO] >> (get_servers) GET /servers
+[12:17:17:07:39 Thread#1/INFO] >> (create_server) POST /servers
+[12:17:17:07:39 Thread#1/INFO] >> (get_current_user) GET /users/@me
+[12:17:17:07:39 Thread#1/INFO] >> (update_current_user) PATCH /users/@me
+[12:17:17:07:39 Thread#1/INFO] >> (login) POST /auth/login application/json
+[12:17:17:07:39 Thread#1/INFO] >> (register) POST /auth/register application/json
+[12:17:17:07:39 Thread#1/INFO] >> (get_user) GET /users/<user_id>
+[12:17:17:07:39 Thread#1/INFO] >> (get_server) GET /servers/<server_id>
+[12:17:17:07:39 Thread#1/INFO] >> (update_server) PATCH /servers/<server_id>
+[12:17:17:07:39 Thread#1/INFO] >> (delete_server) DELETE /servers/<server_id>
+[12:17:17:07:39 Thread#1/INFO] >> (get_channel) GET /channels/<channel_id>
+[12:17:17:07:39 Thread#1/INFO] >> (update_channel) PATCH /channels/<channel_id> application/json
+[12:17:17:07:39 Thread#1/INFO] >> (delete_channel) DELETE /channels/<channel_id>
+[12:17:17:07:39 Thread#1/INFO] >> (join_server) POST /users/@me/servers application/json
+[12:17:17:07:39 Thread#1/INFO] >> (create_invite) POST /servers/<server_id>/invites application/json
+[12:17:17:07:39 Thread#1/INFO] >> (get_channels) GET /servers/<server_id>/channels
+[12:17:17:07:39 Thread#1/INFO] >> (create_channel) POST /servers/<server_id>/channels application/json
+[12:17:17:07:39 Thread#1/INFO] >> (send_typing_indicator) POST /channels/<channel_id>/typing
+[12:17:17:07:39 Thread#1/INFO] >> (get_messages) GET /channels/<channel_id>/messages?<before>&<after>&<limit>
+[12:17:17:07:39 Thread#1/INFO] >> (upload_attachments) POST /channels/<channel_id>/attachments
+[12:17:17:07:39 Thread#1/INFO] >> (pin_message) PUT /channels/<channel_id>/pins/<message_id>
+[12:17:17:07:39 Thread#1/INFO] >> (unpin_message) DELETE /channels/<channel_id>/pins/<message_id>
+[12:17:17:07:39 Thread#1/INFO] >> (update_message) PATCH /channels/<channel_id>/messages/<message_id> application/json
+[12:17:17:07:39 Thread#1/INFO] >> (delete_message) DELETE /channels/<channel_id>/messages/<message_id>
+[12:17:17:07:39 Thread#1/INFO] >> (create_message) POST /servers/<server_id>/channels/<channel_id>/messages
+[12:17:17:07:39 Thread#1/INFO] >> (add_reaction) PUT /channels/<channel_id>/reactions/<message_id>/<emoji>
+[12:17:17:07:39 Thread#1/INFO] >> (remove_reaction) DELETE /channels/<channel_id>/reactions/<message_id>/<emoji>
+[12:17:17:07:39 Thread#1/INFO] >> 📡 Fairings:
+[12:17:17:07:39 Thread#1/INFO] >> Shield (liftoff, response, singleton)
+[12:17:17:07:39 Thread#1/INFO] >> 🛡️ Shield:
+[12:17:17:07:39 Thread#1/INFO] >> Permissions-Policy: interest-cohort=()
+[12:17:17:07:39 Thread#1/INFO] >> X-Content-Type-Options: nosniff
+[12:17:17:07:39 Thread#1/INFO] >> X-Frame-Options: SAMEORIGIN
+[12:17:17:07:39 Thread#1/WARN] >> 🚀 Rocket has launched from http://0.0.0.0:8000
+[12:17:17:07:39 Thread#1/ERR] >> Starting DB on port Port(
+    3306,
+)
+[12:17:17:07:39 Thread#1/DEBUG] >> attempt to connect to the db!
+[12:17:17:07:39 Thread#1/DEBUG] >> not performing TLS upgrade: TLS support not compiled in
+[12:17:17:07:39 Thread#1/DEBUG] >> summary="SET sql_mode=(SELECT CONCAT(@@sql_mode, ',PIPES_AS_CONCAT,NO_ENGINE_SUBSTITUTION')),time_zone='+00:00',NAMES …" db.statement="\n\nSET\n  sql_mode =(\n    SELECT\n      CONCAT(\n        @ @sql_mode,\n        ',PIPES_AS_CONCAT,NO_ENGINE_SUBSTITUTION'\n      )\n  ),\n  time_zone = '+00:00',\n  NAMES utf8mb4 COLLATE utf8mb4_unicode_ci;\n" rows_affected=0 rows_returned=0 elapsed=260.698µs elapsed_secs=0.000260698
+[12:17:17:07:39 Thread#1/DEBUG] >> Connected to db!
+[12:17:17:07:39 Thread#1/DEBUG] >> summary="BEGIN" db.statement="" rows_affected=0 rows_returned=0 elapsed=92.032µs elapsed_secs=9.2032e-5
+[12:17:17:07:40 Thread#1/DEBUG] >> summary="CREATE TABLE IF NOT …" db.statement="\n\nCREATE TABLE IF NOT EXISTS users (\n  id BINARY(16) PRIMARY KEY,\n  username VARCHAR(32) NOT NULL UNIQUE,\n  display_name VARCHAR(32),\n  email VARCHAR(255) NOT NULL UNIQUE,\n  avatar TEXT,\n  status ENUM('online', 'idle', 'dnd', 'offline') NOT NULL DEFAULT 'offline',\n  custom_status TEXT,\n  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP\n)\n" rows_affected=0 rows_returned=0 elapsed=120.129407ms elapsed_secs=0.120129407
+[12:17:17:07:40 Thread#1/DEBUG] >> summary="CREATE TABLE IF NOT …" db.statement="\n\nCREATE TABLE IF NOT EXISTS servers (\n  id BINARY(16) PRIMARY KEY,\n  name VARCHAR(100) NOT NULL,\n  description TEXT,\n  icon TEXT,\n  owner_id BINARY(16) NOT NULL,\n  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  FOREIGN KEY (owner_id) REFERENCES users(id) ON DELETE CASCADE\n)\n" rows_affected=0 rows_returned=0 elapsed=108.174068ms elapsed_secs=0.108174068
+[12:17:17:07:40 Thread#1/DEBUG] >> summary="CREATE TABLE IF NOT …" db.statement="\n\nCREATE TABLE IF NOT EXISTS channels (\n  id BINARY(16) PRIMARY KEY,\n  name VARCHAR(100) NOT NULL,\n  channel_type ENUM('text', 'voice', 'announcement') NOT NULL,\n  server_id BINARY(16) NOT NULL,\n  topic TEXT,\n  slow_mode INT,\n  is_private BOOLEAN NOT NULL DEFAULT false,\n  last_message_id BINARY(16),\n  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  FOREIGN KEY (server_id) REFERENCES servers(id) ON DELETE CASCADE\n)\n" rows_affected=0 rows_returned=0 elapsed=5.774004ms elapsed_secs=0.005774004
+[12:17:17:07:40 Thread#1/DEBUG] >> summary="CREATE TABLE IF NOT …" db.statement="\n\nCREATE TABLE IF NOT EXISTS messages (\n  id BINARY(16) PRIMARY KEY,\n  content TEXT NOT NULL,\n  author_id BINARY(16) NOT NULL,\n  channel_id BINARY(16) NOT NULL,\n  reply_to_id BINARY(16),\n  is_pinned BOOLEAN NOT NULL DEFAULT false,\n  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  edited_at TIMESTAMP NULL,\n  FOREIGN KEY (author_id) REFERENCES users(id) ON DELETE CASCADE,\n  FOREIGN KEY (channel_id) REFERENCES channels(id) ON DELETE CASCADE,\n  FOREIGN KEY (reply_to_id) REFERENCES messages(id) ON DELETE\n  SET\n    NULL\n)\n" rows_affected=0 rows_returned=0 elapsed=2.954503ms elapsed_secs=0.002954503
+[12:17:17:07:40 Thread#1/DEBUG] >> summary="ALTER TABLE channels ADD …" db.statement="\n\nALTER TABLE\n  channels\nADD\n  FOREIGN KEY (last_message_id) REFERENCES messages(id) ON DELETE\nSET\n  NULL\n" rows_affected=0 rows_returned=0 elapsed=68.925519ms elapsed_secs=0.068925519
+[12:17:17:07:40 Thread#1/DEBUG] >> summary="CREATE TABLE IF NOT …" db.statement="\n\nCREATE TABLE IF NOT EXISTS attachments (\n  id BINARY(16) PRIMARY KEY,\n  message_id BINARY(16) NOT NULL,\n  attachment_type ENUM('image', 'video', 'file') NOT NULL,\n  url TEXT NOT NULL,\n  filename VARCHAR(255) NOT NULL,\n  size BIGINT NOT NULL,\n  mime_type VARCHAR(127) NOT NULL,\n  width INT,\n  height INT,\n  duration INT,\n  FOREIGN KEY (message_id) REFERENCES messages(id) ON DELETE CASCADE\n)\n" rows_affected=0 rows_returned=0 elapsed=3.052701ms elapsed_secs=0.003052701
+[12:17:17:07:40 Thread#1/DEBUG] >> summary="CREATE TABLE IF NOT …" db.statement="\n\nCREATE TABLE IF NOT EXISTS reactions (\n  message_id BINARY(16) NOT NULL,\n  user_id BINARY(16) NOT NULL,\n  emoji VARCHAR(32) NOT NULL,\n  PRIMARY KEY (message_id, user_id, emoji),\n  FOREIGN KEY (message_id) REFERENCES messages(id) ON DELETE CASCADE,\n  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE\n)\n" rows_affected=0 rows_returned=0 elapsed=4.433558ms elapsed_secs=0.004433558
+[12:17:17:07:40 Thread#1/DEBUG] >> summary="CREATE TABLE IF NOT …" db.statement="\n\nCREATE TABLE IF NOT EXISTS mentions (\n  message_id BINARY(16) NOT NULL,\n  user_id BINARY(16) NOT NULL,\n  PRIMARY KEY (message_id, user_id),\n  FOREIGN KEY (message_id) REFERENCES messages(id) ON DELETE CASCADE,\n  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE\n)\n" rows_affected=0 rows_returned=0 elapsed=2.93137ms elapsed_secs=0.00293137
+[12:17:17:07:40 Thread#1/DEBUG] >> summary="CREATE TABLE IF NOT …" db.statement="\n\nCREATE TABLE IF NOT EXISTS server_members (\n  user_id BINARY(16) NOT NULL,\n  server_id BINARY(16) NOT NULL,\n  joined_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  PRIMARY KEY (user_id, server_id),\n  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,\n  FOREIGN KEY (server_id) REFERENCES servers(id) ON DELETE CASCADE\n)\n" rows_affected=0 rows_returned=0 elapsed=1.967975ms elapsed_secs=0.001967975
+[12:17:17:07:40 Thread#1/DEBUG] >> summary="CREATE TABLE IF NOT …" db.statement="\n\nCREATE TABLE IF NOT EXISTS invites (\n  code VARCHAR(10) PRIMARY KEY,\n  server_id BINARY(16) NOT NULL,\n  inviter_id BINARY(16) NOT NULL,\n  max_uses INT,\n  uses INT NOT NULL DEFAULT 0,\n  expires_at TIMESTAMP NULL,\n  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  FOREIGN KEY (server_id) REFERENCES servers(id) ON DELETE CASCADE,\n  FOREIGN KEY (inviter_id) REFERENCES users(id) ON DELETE CASCADE\n)\n" rows_affected=0 rows_returned=0 elapsed=2.447083ms elapsed_secs=0.002447083
+[12:17:17:08:28 Thread#2/WARN] >> Received SIGINT. Requesting shutdown.
+[12:17:17:08:28 Thread#1/INFO] >> Shutdown requested. Waiting for pending I/O...
+[12:17:17:08:28 Thread#1/DEBUG] >> signal received, starting graceful shutdown
+[12:17:17:08:28 Thread#1/INFO] >> Graceful shutdown completed successfully.
+[12:17:17:08:31 Thread#1/INFO] >> Running server
+[12:17:17:08:31 Thread#1/DEBUG] >> server config has been serialized: Config: ServerConfig {
+    http_port: Port(
+        8000,
+    ),
+    use_http: false,
+    log_level: Trace,
+    log_path: Some(
+        "",
+    ),
+    env_override: true,
+    db_url: "localhost",
+    db_port: Port(
+        3306,
+    ),
+    db_user: "occult",
+    db_pass: "occult",
+    db_name: "occult_db",
+}
+[12:17:17:08:31 Thread#1/DEBUG] >> server_config = ServerConfig {
+    http_port: Port(
+        8000,
+    ),
+    use_http: false,
+    log_level: Trace,
+    log_path: Some(
+        "",
+    ),
+    env_override: true,
+    db_url: "localhost",
+    db_port: Port(
+        3306,
+    ),
+    db_user: "occult",
+    db_pass: "occult",
+    db_name: "occult_db",
+}
+[12:17:17:08:31 Thread#1/INFO] >> 🔧 Configured for debug.
+[12:17:17:08:31 Thread#1/INFO] >> address: 0.0.0.0
+[12:17:17:08:31 Thread#1/INFO] >> port: 8000
+[12:17:17:08:31 Thread#1/INFO] >> workers: 16
+[12:17:17:08:31 Thread#1/INFO] >> max blocking threads: 512
+[12:17:17:08:31 Thread#1/INFO] >> ident: Rocket
+[12:17:17:08:31 Thread#1/INFO] >> IP header: X-Real-IP
+[12:17:17:08:31 Thread#1/INFO] >> limits: bytes = 8KiB, data-form = 2MiB, file = 1MiB, form = 32KiB, json = 1MiB, msgpack = 1MiB, string = 8KiB
+[12:17:17:08:31 Thread#1/INFO] >> temp dir: /tmp
+[12:17:17:08:31 Thread#1/INFO] >> http/2: true
+[12:17:17:08:31 Thread#1/INFO] >> keep-alive: 5s
+[12:17:17:08:31 Thread#1/INFO] >> tls: disabled
+[12:17:17:08:31 Thread#1/INFO] >> shutdown: ctrlc = true, force = true, signals = [SIGTERM], grace = 2s, mercy = 3s
+[12:17:17:08:31 Thread#1/INFO] >> log level: normal
+[12:17:17:08:31 Thread#1/INFO] >> cli colors: true
+[12:17:17:08:31 Thread#1/INFO] >> 📬 Routes:
+[12:17:17:08:31 Thread#1/INFO] >> (get_servers) GET /servers
+[12:17:17:08:31 Thread#1/INFO] >> (create_server) POST /servers
+[12:17:17:08:31 Thread#1/INFO] >> (get_current_user) GET /users/@me
+[12:17:17:08:31 Thread#1/INFO] >> (update_current_user) PATCH /users/@me
+[12:17:17:08:31 Thread#1/INFO] >> (login) POST /auth/login application/json
+[12:17:17:08:31 Thread#1/INFO] >> (register) POST /auth/register application/json
+[12:17:17:08:31 Thread#1/INFO] >> (get_user) GET /users/<user_id>
+[12:17:17:08:31 Thread#1/INFO] >> (get_server) GET /servers/<server_id>
+[12:17:17:08:31 Thread#1/INFO] >> (update_server) PATCH /servers/<server_id>
+[12:17:17:08:31 Thread#1/INFO] >> (delete_server) DELETE /servers/<server_id>
+[12:17:17:08:31 Thread#1/INFO] >> (get_channel) GET /channels/<channel_id>
+[12:17:17:08:31 Thread#1/INFO] >> (update_channel) PATCH /channels/<channel_id> application/json
+[12:17:17:08:31 Thread#1/INFO] >> (delete_channel) DELETE /channels/<channel_id>
+[12:17:17:08:31 Thread#1/INFO] >> (join_server) POST /users/@me/servers application/json
+[12:17:17:08:31 Thread#1/INFO] >> (create_invite) POST /servers/<server_id>/invites application/json
+[12:17:17:08:31 Thread#1/INFO] >> (get_channels) GET /servers/<server_id>/channels
+[12:17:17:08:31 Thread#1/INFO] >> (create_channel) POST /servers/<server_id>/channels application/json
+[12:17:17:08:31 Thread#1/INFO] >> (send_typing_indicator) POST /channels/<channel_id>/typing
+[12:17:17:08:31 Thread#1/INFO] >> (get_messages) GET /channels/<channel_id>/messages?<before>&<after>&<limit>
+[12:17:17:08:31 Thread#1/INFO] >> (upload_attachments) POST /channels/<channel_id>/attachments
+[12:17:17:08:31 Thread#1/INFO] >> (pin_message) PUT /channels/<channel_id>/pins/<message_id>
+[12:17:17:08:31 Thread#1/INFO] >> (unpin_message) DELETE /channels/<channel_id>/pins/<message_id>
+[12:17:17:08:31 Thread#1/INFO] >> (update_message) PATCH /channels/<channel_id>/messages/<message_id> application/json
+[12:17:17:08:31 Thread#1/INFO] >> (delete_message) DELETE /channels/<channel_id>/messages/<message_id>
+[12:17:17:08:31 Thread#1/INFO] >> (create_message) POST /servers/<server_id>/channels/<channel_id>/messages
+[12:17:17:08:31 Thread#1/INFO] >> (add_reaction) PUT /channels/<channel_id>/reactions/<message_id>/<emoji>
+[12:17:17:08:31 Thread#1/INFO] >> (remove_reaction) DELETE /channels/<channel_id>/reactions/<message_id>/<emoji>
+[12:17:17:08:31 Thread#1/INFO] >> 📡 Fairings:
+[12:17:17:08:31 Thread#1/INFO] >> Shield (liftoff, response, singleton)
+[12:17:17:08:31 Thread#1/INFO] >> 🛡️ Shield:
+[12:17:17:08:31 Thread#1/INFO] >> X-Content-Type-Options: nosniff
+[12:17:17:08:31 Thread#1/INFO] >> X-Frame-Options: SAMEORIGIN
+[12:17:17:08:31 Thread#1/INFO] >> Permissions-Policy: interest-cohort=()
+[12:17:17:08:31 Thread#1/WARN] >> 🚀 Rocket has launched from http://0.0.0.0:8000
+[12:17:17:08:31 Thread#1/ERR ] >> Starting DB on port Port(
+    3306,
+)
+[12:17:17:08:31 Thread#1/DEBUG] >> attempt to connect to the db!
+[12:17:17:08:31 Thread#1/DEBUG] >> not performing TLS upgrade: TLS support not compiled in
+[12:17:17:08:31 Thread#1/DEBUG] >> summary="SET sql_mode=(SELECT CONCAT(@@sql_mode, ',PIPES_AS_CONCAT,NO_ENGINE_SUBSTITUTION')),time_zone='+00:00',NAMES …" db.statement="\n\nSET\n  sql_mode =(\n    SELECT\n      CONCAT(\n        @ @sql_mode,\n        ',PIPES_AS_CONCAT,NO_ENGINE_SUBSTITUTION'\n      )\n  ),\n  time_zone = '+00:00',\n  NAMES utf8mb4 COLLATE utf8mb4_unicode_ci;\n" rows_affected=0 rows_returned=0 elapsed=198.751µs elapsed_secs=0.000198751
+[12:17:17:08:31 Thread#1/DEBUG] >> Connected to db!
+[12:17:17:08:31 Thread#1/DEBUG] >> summary="BEGIN" db.statement="" rows_affected=0 rows_returned=0 elapsed=55.649µs elapsed_secs=5.5649e-5
+[12:17:17:08:31 Thread#1/DEBUG] >> summary="CREATE TABLE IF NOT …" db.statement="\n\nCREATE TABLE IF NOT EXISTS users (\n  id BINARY(16) PRIMARY KEY,\n  username VARCHAR(32) NOT NULL UNIQUE,\n  display_name VARCHAR(32),\n  email VARCHAR(255) NOT NULL UNIQUE,\n  avatar TEXT,\n  status ENUM('online', 'idle', 'dnd', 'offline') NOT NULL DEFAULT 'offline',\n  custom_status TEXT,\n  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP\n)\n" rows_affected=0 rows_returned=0 elapsed=2.601943ms elapsed_secs=0.002601943
+[12:17:17:08:31 Thread#1/DEBUG] >> summary="CREATE TABLE IF NOT …" db.statement="\n\nCREATE TABLE IF NOT EXISTS servers (\n  id BINARY(16) PRIMARY KEY,\n  name VARCHAR(100) NOT NULL,\n  description TEXT,\n  icon TEXT,\n  owner_id BINARY(16) NOT NULL,\n  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  FOREIGN KEY (owner_id) REFERENCES users(id) ON DELETE CASCADE\n)\n" rows_affected=0 rows_returned=0 elapsed=2.532336ms elapsed_secs=0.002532336
+[12:17:17:08:31 Thread#1/DEBUG] >> summary="CREATE TABLE IF NOT …" db.statement="\n\nCREATE TABLE IF NOT EXISTS channels (\n  id BINARY(16) PRIMARY KEY,\n  name VARCHAR(100) NOT NULL,\n  channel_type ENUM('text', 'voice', 'announcement') NOT NULL,\n  server_id BINARY(16) NOT NULL,\n  topic TEXT,\n  slow_mode INT,\n  is_private BOOLEAN NOT NULL DEFAULT false,\n  last_message_id BINARY(16),\n  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  FOREIGN KEY (server_id) REFERENCES servers(id) ON DELETE CASCADE\n)\n" rows_affected=0 rows_returned=0 elapsed=3.095335ms elapsed_secs=0.003095335
+[12:17:17:08:31 Thread#1/DEBUG] >> summary="CREATE TABLE IF NOT …" db.statement="\n\nCREATE TABLE IF NOT EXISTS messages (\n  id BINARY(16) PRIMARY KEY,\n  content TEXT NOT NULL,\n  author_id BINARY(16) NOT NULL,\n  channel_id BINARY(16) NOT NULL,\n  reply_to_id BINARY(16),\n  is_pinned BOOLEAN NOT NULL DEFAULT false,\n  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  edited_at TIMESTAMP NULL,\n  FOREIGN KEY (author_id) REFERENCES users(id) ON DELETE CASCADE,\n  FOREIGN KEY (channel_id) REFERENCES channels(id) ON DELETE CASCADE,\n  FOREIGN KEY (reply_to_id) REFERENCES messages(id) ON DELETE\n  SET\n    NULL\n)\n" rows_affected=0 rows_returned=0 elapsed=3.375472ms elapsed_secs=0.003375472
+[12:17:17:08:31 Thread#1/DEBUG] >> summary="ALTER TABLE channels ADD …" db.statement="\n\nALTER TABLE\n  channels\nADD\n  FOREIGN KEY (last_message_id) REFERENCES messages(id) ON DELETE\nSET\n  NULL\n" rows_affected=0 rows_returned=0 elapsed=71.672947ms elapsed_secs=0.071672947
+[12:17:17:08:31 Thread#1/DEBUG] >> summary="CREATE TABLE IF NOT …" db.statement="\n\nCREATE TABLE IF NOT EXISTS attachments (\n  id BINARY(16) PRIMARY KEY,\n  message_id BINARY(16) NOT NULL,\n  attachment_type ENUM('image', 'video', 'file') NOT NULL,\n  url TEXT NOT NULL,\n  filename VARCHAR(255) NOT NULL,\n  size BIGINT NOT NULL,\n  mime_type VARCHAR(127) NOT NULL,\n  width INT,\n  height INT,\n  duration INT,\n  FOREIGN KEY (message_id) REFERENCES messages(id) ON DELETE CASCADE\n)\n" rows_affected=0 rows_returned=0 elapsed=2.594685ms elapsed_secs=0.002594685
+[12:17:17:08:31 Thread#1/DEBUG] >> summary="CREATE TABLE IF NOT …" db.statement="\n\nCREATE TABLE IF NOT EXISTS reactions (\n  message_id BINARY(16) NOT NULL,\n  user_id BINARY(16) NOT NULL,\n  emoji VARCHAR(32) NOT NULL,\n  PRIMARY KEY (message_id, user_id, emoji),\n  FOREIGN KEY (message_id) REFERENCES messages(id) ON DELETE CASCADE,\n  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE\n)\n" rows_affected=0 rows_returned=0 elapsed=5.202179ms elapsed_secs=0.005202179
+[12:17:17:08:31 Thread#1/DEBUG] >> summary="CREATE TABLE IF NOT …" db.statement="\n\nCREATE TABLE IF NOT EXISTS mentions (\n  message_id BINARY(16) NOT NULL,\n  user_id BINARY(16) NOT NULL,\n  PRIMARY KEY (message_id, user_id),\n  FOREIGN KEY (message_id) REFERENCES messages(id) ON DELETE CASCADE,\n  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE\n)\n" rows_affected=0 rows_returned=0 elapsed=2.762793ms elapsed_secs=0.002762793
+[12:17:17:08:31 Thread#1/DEBUG] >> summary="CREATE TABLE IF NOT …" db.statement="\n\nCREATE TABLE IF NOT EXISTS server_members (\n  user_id BINARY(16) NOT NULL,\n  server_id BINARY(16) NOT NULL,\n  joined_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  PRIMARY KEY (user_id, server_id),\n  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,\n  FOREIGN KEY (server_id) REFERENCES servers(id) ON DELETE CASCADE\n)\n" rows_affected=0 rows_returned=0 elapsed=4.783653ms elapsed_secs=0.004783653
+[12:17:17:08:31 Thread#1/DEBUG] >> summary="CREATE TABLE IF NOT …" db.statement="\n\nCREATE TABLE IF NOT EXISTS invites (\n  code VARCHAR(10) PRIMARY KEY,\n  server_id BINARY(16) NOT NULL,\n  inviter_id BINARY(16) NOT NULL,\n  max_uses INT,\n  uses INT NOT NULL DEFAULT 0,\n  expires_at TIMESTAMP NULL,\n  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  FOREIGN KEY (server_id) REFERENCES servers(id) ON DELETE CASCADE,\n  FOREIGN KEY (inviter_id) REFERENCES users(id) ON DELETE CASCADE\n)\n" rows_affected=0 rows_returned=0 elapsed=2.192579ms elapsed_secs=0.002192579
+[12:17:17:08:47 Thread#2/WARN] >> Received SIGINT. Requesting shutdown.
+[12:17:17:08:47 Thread#1/INFO] >> Shutdown requested. Waiting for pending I/O...
+[12:17:17:08:47 Thread#1/DEBUG] >> signal received, starting graceful shutdown
+[12:17:17:08:47 Thread#1/INFO] >> Graceful shutdown completed successfully.
+[12:17:17:08:49 Thread#1/INFO] >> Running server
+[12:17:17:08:49 Thread#1/DEBUG] >> server config has been serialized: Config: ServerConfig {
+    http_port: Port(
+        8000,
+    ),
+    use_http: false,
+    log_level: Trace,
+    log_path: Some(
+        "",
+    ),
+    env_override: true,
+    db_url: "localhost",
+    db_port: Port(
+        3306,
+    ),
+    db_user: "occult",
+    db_pass: "occult",
+    db_name: "occult_db",
+}
+[12:17:17:08:49 Thread#1/DEBUG] >> server_config = ServerConfig {
+    http_port: Port(
+        8000,
+    ),
+    use_http: false,
+    log_level: Trace,
+    log_path: Some(
+        "",
+    ),
+    env_override: true,
+    db_url: "localhost",
+    db_port: Port(
+        3306,
+    ),
+    db_user: "occult",
+    db_pass: "occult",
+    db_name: "occult_db",
+}
+[12:17:17:08:49 Thread#1/INFO] >> 🔧 Configured for debug.
+[12:17:17:08:49 Thread#1/INFO] >> address: 0.0.0.0
+[12:17:17:08:49 Thread#1/INFO] >> port: 8000
+[12:17:17:08:49 Thread#1/INFO] >> workers: 16
+[12:17:17:08:49 Thread#1/INFO] >> max blocking threads: 512
+[12:17:17:08:49 Thread#1/INFO] >> ident: Rocket
+[12:17:17:08:49 Thread#1/INFO] >> IP header: X-Real-IP
+[12:17:17:08:49 Thread#1/INFO] >> limits: bytes = 8KiB, data-form = 2MiB, file = 1MiB, form = 32KiB, json = 1MiB, msgpack = 1MiB, string = 8KiB
+[12:17:17:08:49 Thread#1/INFO] >> temp dir: /tmp
+[12:17:17:08:49 Thread#1/INFO] >> http/2: true
+[12:17:17:08:49 Thread#1/INFO] >> keep-alive: 5s
+[12:17:17:08:49 Thread#1/INFO] >> tls: disabled
+[12:17:17:08:49 Thread#1/INFO] >> shutdown: ctrlc = true, force = true, signals = [SIGTERM], grace = 2s, mercy = 3s
+[12:17:17:08:49 Thread#1/INFO] >> log level: normal
+[12:17:17:08:49 Thread#1/INFO] >> cli colors: true
+[12:17:17:08:49 Thread#1/INFO] >> 📬 Routes:
+[12:17:17:08:49 Thread#1/INFO] >> (get_servers) GET /servers
+[12:17:17:08:49 Thread#1/INFO] >> (create_server) POST /servers
+[12:17:17:08:49 Thread#1/INFO] >> (get_current_user) GET /users/@me
+[12:17:17:08:49 Thread#1/INFO] >> (update_current_user) PATCH /users/@me
+[12:17:17:08:49 Thread#1/INFO] >> (login) POST /auth/login application/json
+[12:17:17:08:49 Thread#1/INFO] >> (register) POST /auth/register application/json
+[12:17:17:08:49 Thread#1/INFO] >> (get_user) GET /users/<user_id>
+[12:17:17:08:49 Thread#1/INFO] >> (get_server) GET /servers/<server_id>
+[12:17:17:08:49 Thread#1/INFO] >> (update_server) PATCH /servers/<server_id>
+[12:17:17:08:49 Thread#1/INFO] >> (delete_server) DELETE /servers/<server_id>
+[12:17:17:08:49 Thread#1/INFO] >> (get_channel) GET /channels/<channel_id>
+[12:17:17:08:49 Thread#1/INFO] >> (update_channel) PATCH /channels/<channel_id> application/json
+[12:17:17:08:49 Thread#1/INFO] >> (delete_channel) DELETE /channels/<channel_id>
+[12:17:17:08:49 Thread#1/INFO] >> (join_server) POST /users/@me/servers application/json
+[12:17:17:08:49 Thread#1/INFO] >> (create_invite) POST /servers/<server_id>/invites application/json
+[12:17:17:08:49 Thread#1/INFO] >> (get_channels) GET /servers/<server_id>/channels
+[12:17:17:08:49 Thread#1/INFO] >> (create_channel) POST /servers/<server_id>/channels application/json
+[12:17:17:08:49 Thread#1/INFO] >> (send_typing_indicator) POST /channels/<channel_id>/typing
+[12:17:17:08:49 Thread#1/INFO] >> (get_messages) GET /channels/<channel_id>/messages?<before>&<after>&<limit>
+[12:17:17:08:49 Thread#1/INFO] >> (upload_attachments) POST /channels/<channel_id>/attachments
+[12:17:17:08:49 Thread#1/INFO] >> (pin_message) PUT /channels/<channel_id>/pins/<message_id>
+[12:17:17:08:49 Thread#1/INFO] >> (unpin_message) DELETE /channels/<channel_id>/pins/<message_id>
+[12:17:17:08:49 Thread#1/INFO] >> (update_message) PATCH /channels/<channel_id>/messages/<message_id> application/json
+[12:17:17:08:49 Thread#1/INFO] >> (delete_message) DELETE /channels/<channel_id>/messages/<message_id>
+[12:17:17:08:49 Thread#1/INFO] >> (create_message) POST /servers/<server_id>/channels/<channel_id>/messages
+[12:17:17:08:49 Thread#1/INFO] >> (add_reaction) PUT /channels/<channel_id>/reactions/<message_id>/<emoji>
+[12:17:17:08:49 Thread#1/INFO] >> (remove_reaction) DELETE /channels/<channel_id>/reactions/<message_id>/<emoji>
+[12:17:17:08:49 Thread#1/INFO] >> 📡 Fairings:
+[12:17:17:08:49 Thread#1/INFO] >> Shield (liftoff, response, singleton)
+[12:17:17:08:49 Thread#1/INFO] >> 🛡️ Shield:
+[12:17:17:08:49 Thread#1/INFO] >> X-Content-Type-Options: nosniff
+[12:17:17:08:49 Thread#1/INFO] >> X-Frame-Options: SAMEORIGIN
+[12:17:17:08:49 Thread#1/INFO] >> Permissions-Policy: interest-cohort=()
+[12:17:17:08:49 Thread#1/WARN] >> 🚀 Rocket has launched from http://0.0.0.0:8000
+[12:17:17:08:49 Thread#1/ERROR] >> Starting DB on port Port(
+    3306,
+)
+[12:17:17:08:49 Thread#1/DEBUG] >> attempt to connect to the db!
+[12:17:17:08:49 Thread#1/DEBUG] >> not performing TLS upgrade: TLS support not compiled in
+[12:17:17:08:49 Thread#1/DEBUG] >> summary="SET sql_mode=(SELECT CONCAT(@@sql_mode, ',PIPES_AS_CONCAT,NO_ENGINE_SUBSTITUTION')),time_zone='+00:00',NAMES …" db.statement="\n\nSET\n  sql_mode =(\n    SELECT\n      CONCAT(\n        @ @sql_mode,\n        ',PIPES_AS_CONCAT,NO_ENGINE_SUBSTITUTION'\n      )\n  ),\n  time_zone = '+00:00',\n  NAMES utf8mb4 COLLATE utf8mb4_unicode_ci;\n" rows_affected=0 rows_returned=0 elapsed=355.179µs elapsed_secs=0.000355179
+[12:17:17:08:49 Thread#1/DEBUG] >> Connected to db!
+[12:17:17:08:49 Thread#1/DEBUG] >> summary="BEGIN" db.statement="" rows_affected=0 rows_returned=0 elapsed=240.625µs elapsed_secs=0.000240625
+[12:17:17:08:50 Thread#1/WARN] >> slow statement: execution time exceeded alert threshold summary="CREATE TABLE IF NOT …" db.statement="\n\nCREATE TABLE IF NOT EXISTS users (\n  id BINARY(16) PRIMARY KEY,\n  username VARCHAR(32) NOT NULL UNIQUE,\n  display_name VARCHAR(32),\n  email VARCHAR(255) NOT NULL UNIQUE,\n  avatar TEXT,\n  status ENUM('online', 'idle', 'dnd', 'offline') NOT NULL DEFAULT 'offline',\n  custom_status TEXT,\n  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP\n)\n" rows_affected=0 rows_returned=0 elapsed=1.221478992s elapsed_secs=1.221478992 slow_threshold=1s
+[12:17:17:08:50 Thread#1/DEBUG] >> summary="CREATE TABLE IF NOT …" db.statement="\n\nCREATE TABLE IF NOT EXISTS servers (\n  id BINARY(16) PRIMARY KEY,\n  name VARCHAR(100) NOT NULL,\n  description TEXT,\n  icon TEXT,\n  owner_id BINARY(16) NOT NULL,\n  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  FOREIGN KEY (owner_id) REFERENCES users(id) ON DELETE CASCADE\n)\n" rows_affected=0 rows_returned=0 elapsed=51.150091ms elapsed_secs=0.051150091
+[12:17:17:08:50 Thread#1/DEBUG] >> summary="CREATE TABLE IF NOT …" db.statement="\n\nCREATE TABLE IF NOT EXISTS channels (\n  id BINARY(16) PRIMARY KEY,\n  name VARCHAR(100) NOT NULL,\n  channel_type ENUM('text', 'voice', 'announcement') NOT NULL,\n  server_id BINARY(16) NOT NULL,\n  topic TEXT,\n  slow_mode INT,\n  is_private BOOLEAN NOT NULL DEFAULT false,\n  last_message_id BINARY(16),\n  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  FOREIGN KEY (server_id) REFERENCES servers(id) ON DELETE CASCADE\n)\n" rows_affected=0 rows_returned=0 elapsed=51.062694ms elapsed_secs=0.051062694
+[12:17:17:08:50 Thread#1/DEBUG] >> summary="CREATE TABLE IF NOT …" db.statement="\n\nCREATE TABLE IF NOT EXISTS messages (\n  id BINARY(16) PRIMARY KEY,\n  content TEXT NOT NULL,\n  author_id BINARY(16) NOT NULL,\n  channel_id BINARY(16) NOT NULL,\n  reply_to_id BINARY(16),\n  is_pinned BOOLEAN NOT NULL DEFAULT false,\n  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  edited_at TIMESTAMP NULL,\n  FOREIGN KEY (author_id) REFERENCES users(id) ON DELETE CASCADE,\n  FOREIGN KEY (channel_id) REFERENCES channels(id) ON DELETE CASCADE,\n  FOREIGN KEY (reply_to_id) REFERENCES messages(id) ON DELETE\n  SET\n    NULL\n)\n" rows_affected=0 rows_returned=0 elapsed=30.607979ms elapsed_secs=0.030607979
+[12:17:17:08:51 Thread#1/DEBUG] >> summary="ALTER TABLE channels ADD …" db.statement="\n\nALTER TABLE\n  channels\nADD\n  FOREIGN KEY (last_message_id) REFERENCES messages(id) ON DELETE\nSET\n  NULL\n" rows_affected=0 rows_returned=0 elapsed=186.656357ms elapsed_secs=0.186656357
+[12:17:17:08:51 Thread#1/DEBUG] >> summary="CREATE TABLE IF NOT …" db.statement="\n\nCREATE TABLE IF NOT EXISTS attachments (\n  id BINARY(16) PRIMARY KEY,\n  message_id BINARY(16) NOT NULL,\n  attachment_type ENUM('image', 'video', 'file') NOT NULL,\n  url TEXT NOT NULL,\n  filename VARCHAR(255) NOT NULL,\n  size BIGINT NOT NULL,\n  mime_type VARCHAR(127) NOT NULL,\n  width INT,\n  height INT,\n  duration INT,\n  FOREIGN KEY (message_id) REFERENCES messages(id) ON DELETE CASCADE\n)\n" rows_affected=0 rows_returned=0 elapsed=7.962266ms elapsed_secs=0.007962266
+[12:17:17:08:51 Thread#1/DEBUG] >> summary="CREATE TABLE IF NOT …" db.statement="\n\nCREATE TABLE IF NOT EXISTS reactions (\n  message_id BINARY(16) NOT NULL,\n  user_id BINARY(16) NOT NULL,\n  emoji VARCHAR(32) NOT NULL,\n  PRIMARY KEY (message_id, user_id, emoji),\n  FOREIGN KEY (message_id) REFERENCES messages(id) ON DELETE CASCADE,\n  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE\n)\n" rows_affected=0 rows_returned=0 elapsed=2.317712ms elapsed_secs=0.002317712
+[12:17:17:08:51 Thread#1/DEBUG] >> summary="CREATE TABLE IF NOT …" db.statement="\n\nCREATE TABLE IF NOT EXISTS mentions (\n  message_id BINARY(16) NOT NULL,\n  user_id BINARY(16) NOT NULL,\n  PRIMARY KEY (message_id, user_id),\n  FOREIGN KEY (message_id) REFERENCES messages(id) ON DELETE CASCADE,\n  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE\n)\n" rows_affected=0 rows_returned=0 elapsed=2.609301ms elapsed_secs=0.002609301
+[12:17:17:08:51 Thread#1/DEBUG] >> summary="CREATE TABLE IF NOT …" db.statement="\n\nCREATE TABLE IF NOT EXISTS server_members (\n  user_id BINARY(16) NOT NULL,\n  server_id BINARY(16) NOT NULL,\n  joined_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  PRIMARY KEY (user_id, server_id),\n  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,\n  FOREIGN KEY (server_id) REFERENCES servers(id) ON DELETE CASCADE\n)\n" rows_affected=0 rows_returned=0 elapsed=6.322847ms elapsed_secs=0.006322847
+[12:17:17:08:51 Thread#1/DEBUG] >> summary="CREATE TABLE IF NOT …" db.statement="\n\nCREATE TABLE IF NOT EXISTS invites (\n  code VARCHAR(10) PRIMARY KEY,\n  server_id BINARY(16) NOT NULL,\n  inviter_id BINARY(16) NOT NULL,\n  max_uses INT,\n  uses INT NOT NULL DEFAULT 0,\n  expires_at TIMESTAMP NULL,\n  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  FOREIGN KEY (server_id) REFERENCES servers(id) ON DELETE CASCADE,\n  FOREIGN KEY (inviter_id) REFERENCES users(id) ON DELETE CASCADE\n)\n" rows_affected=0 rows_returned=0 elapsed=3.12862ms elapsed_secs=0.00312862
+[12:17:17:08:58 Thread#4/WARN] >> Received SIGINT. Requesting shutdown.
+[12:17:17:08:58 Thread#1/INFO] >> Shutdown requested. Waiting for pending I/O...
+[12:17:17:08:58 Thread#1/DEBUG] >> signal received, starting graceful shutdown
+[12:17:17:08:58 Thread#1/INFO] >> Graceful shutdown completed successfully.
+[12:17:17:15:34 Thread#1/INFO] >> Running server
+[12:17:17:15:34 Thread#1/DEBUG] >> server config has been serialized: Config: ServerConfig {
+    http_port: Port(
+        8000,
+    ),
+    use_http: false,
+    log_level: Trace,
+    log_path: Some(
+        "",
+    ),
+    env_override: true,
+    db_url: "localhost",
+    db_port: Port(
+        3306,
+    ),
+    db_user: "occult",
+    db_pass: "occult",
+    db_name: "occult_db",
+}
+[12:17:17:15:34 Thread#1/DEBUG] >> server_config = ServerConfig {
+    http_port: Port(
+        8000,
+    ),
+    use_http: false,
+    log_level: Trace,
+    log_path: Some(
+        "",
+    ),
+    env_override: true,
+    db_url: "localhost",
+    db_port: Port(
+        3306,
+    ),
+    db_user: "occult",
+    db_pass: "occult",
+    db_name: "occult_db",
+}
+[12:17:17:15:34 Thread#1/INFO] >> 🔧 Configured for debug.
+[12:17:17:15:34 Thread#1/INFO] >> address: 0.0.0.0
+[12:17:17:15:34 Thread#1/INFO] >> port: 8000
+[12:17:17:15:34 Thread#1/INFO] >> workers: 16
+[12:17:17:15:34 Thread#1/INFO] >> max blocking threads: 512
+[12:17:17:15:34 Thread#1/INFO] >> ident: Rocket
+[12:17:17:15:34 Thread#1/INFO] >> IP header: X-Real-IP
+[12:17:17:15:34 Thread#1/INFO] >> limits: bytes = 8KiB, data-form = 2MiB, file = 1MiB, form = 32KiB, json = 1MiB, msgpack = 1MiB, string = 8KiB
+[12:17:17:15:34 Thread#1/INFO] >> temp dir: /tmp
+[12:17:17:15:34 Thread#1/INFO] >> http/2: true
+[12:17:17:15:34 Thread#1/INFO] >> keep-alive: 5s
+[12:17:17:15:34 Thread#1/INFO] >> tls: disabled
+[12:17:17:15:34 Thread#1/INFO] >> shutdown: ctrlc = true, force = true, signals = [SIGTERM], grace = 2s, mercy = 3s
+[12:17:17:15:34 Thread#1/INFO] >> log level: normal
+[12:17:17:15:34 Thread#1/INFO] >> cli colors: true
+[12:17:17:15:34 Thread#1/INFO] >> 📬 Routes:
+[12:17:17:15:34 Thread#1/INFO] >> (get_servers) GET /servers
+[12:17:17:15:34 Thread#1/INFO] >> (create_server) POST /servers
+[12:17:17:15:34 Thread#1/INFO] >> (get_current_user) GET /users/@me
+[12:17:17:15:34 Thread#1/INFO] >> (update_current_user) PATCH /users/@me
+[12:17:17:15:34 Thread#1/INFO] >> (login) POST /auth/login application/json
+[12:17:17:15:34 Thread#1/INFO] >> (register) POST /auth/register application/json
+[12:17:17:15:34 Thread#1/INFO] >> (get_user) GET /users/<user_id>
+[12:17:17:15:34 Thread#1/INFO] >> (get_server) GET /servers/<server_id>
+[12:17:17:15:34 Thread#1/INFO] >> (update_server) PATCH /servers/<server_id>
+[12:17:17:15:34 Thread#1/INFO] >> (delete_server) DELETE /servers/<server_id>
+[12:17:17:15:34 Thread#1/INFO] >> (get_channel) GET /channels/<channel_id>
+[12:17:17:15:34 Thread#1/INFO] >> (update_channel) PATCH /channels/<channel_id> application/json
+[12:17:17:15:34 Thread#1/INFO] >> (delete_channel) DELETE /channels/<channel_id>
+[12:17:17:15:34 Thread#1/INFO] >> (join_server) POST /users/@me/servers application/json
+[12:17:17:15:34 Thread#1/INFO] >> (create_invite) POST /servers/<server_id>/invites application/json
+[12:17:17:15:34 Thread#1/INFO] >> (get_channels) GET /servers/<server_id>/channels
+[12:17:17:15:34 Thread#1/INFO] >> (create_channel) POST /servers/<server_id>/channels application/json
+[12:17:17:15:34 Thread#1/INFO] >> (send_typing_indicator) POST /channels/<channel_id>/typing
+[12:17:17:15:34 Thread#1/INFO] >> (get_messages) GET /channels/<channel_id>/messages?<before>&<after>&<limit>
+[12:17:17:15:34 Thread#1/INFO] >> (upload_attachments) POST /channels/<channel_id>/attachments
+[12:17:17:15:34 Thread#1/INFO] >> (pin_message) PUT /channels/<channel_id>/pins/<message_id>
+[12:17:17:15:34 Thread#1/INFO] >> (unpin_message) DELETE /channels/<channel_id>/pins/<message_id>
+[12:17:17:15:34 Thread#1/INFO] >> (update_message) PATCH /channels/<channel_id>/messages/<message_id> application/json
+[12:17:17:15:34 Thread#1/INFO] >> (delete_message) DELETE /channels/<channel_id>/messages/<message_id>
+[12:17:17:15:34 Thread#1/INFO] >> (create_message) POST /servers/<server_id>/channels/<channel_id>/messages
+[12:17:17:15:34 Thread#1/INFO] >> (add_reaction) PUT /channels/<channel_id>/reactions/<message_id>/<emoji>
+[12:17:17:15:34 Thread#1/INFO] >> (remove_reaction) DELETE /channels/<channel_id>/reactions/<message_id>/<emoji>
+[12:17:17:15:34 Thread#1/INFO] >> 📡 Fairings:
+[12:17:17:15:34 Thread#1/INFO] >> Shield (liftoff, response, singleton)
+[12:17:17:15:34 Thread#1/INFO] >> 🛡️ Shield:
+[12:17:17:15:34 Thread#1/INFO] >> Permissions-Policy: interest-cohort=()
+[12:17:17:15:34 Thread#1/INFO] >> X-Content-Type-Options: nosniff
+[12:17:17:15:34 Thread#1/INFO] >> X-Frame-Options: SAMEORIGIN
+[12:17:17:15:34 Thread#1/WARN] >> 🚀 Rocket has launched from http://0.0.0.0:8000
+[12:17:17:15:34 Thread#1/ERROR] >> Starting DB on port Port(
+    3306,
+)
+[12:17:17:15:34 Thread#1/DEBUG] >> attempt to connect to the db!
+[12:17:17:15:34 Thread#1/DEBUG] >> not performing TLS upgrade: TLS support not compiled in
+[12:17:17:15:34 Thread#1/DEBUG] >> summary="SET sql_mode=(SELECT CONCAT(@@sql_mode, ',PIPES_AS_CONCAT,NO_ENGINE_SUBSTITUTION')),time_zone='+00:00',NAMES …" db.statement="\n\nSET\n  sql_mode =(\n    SELECT\n      CONCAT(\n        @ @sql_mode,\n        ',PIPES_AS_CONCAT,NO_ENGINE_SUBSTITUTION'\n      )\n  ),\n  time_zone = '+00:00',\n  NAMES utf8mb4 COLLATE utf8mb4_unicode_ci;\n" rows_affected=0 rows_returned=0 elapsed=304.114µs elapsed_secs=0.000304114
+[12:17:17:15:34 Thread#1/DEBUG] >> Connected to db!
+[12:17:17:15:34 Thread#1/DEBUG] >> summary="BEGIN" db.statement="" rows_affected=0 rows_returned=0 elapsed=140.395µs elapsed_secs=0.000140395
+[12:17:17:15:34 Thread#1/DEBUG] >> summary="CREATE TABLE IF NOT …" db.statement="\n\nCREATE TABLE IF NOT EXISTS users (\n  id BINARY(16) PRIMARY KEY,\n  username VARCHAR(32) NOT NULL UNIQUE,\n  display_name VARCHAR(32),\n  email VARCHAR(255) NOT NULL UNIQUE,\n  avatar TEXT,\n  status ENUM('online', 'idle', 'dnd', 'offline') NOT NULL DEFAULT 'offline',\n  custom_status TEXT,\n  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP\n)\n" rows_affected=0 rows_returned=0 elapsed=65.585005ms elapsed_secs=0.065585005
+[12:17:17:15:34 Thread#1/DEBUG] >> summary="CREATE TABLE IF NOT …" db.statement="\n\nCREATE TABLE IF NOT EXISTS servers (\n  id BINARY(16) PRIMARY KEY,\n  name VARCHAR(100) NOT NULL,\n  description TEXT,\n  icon TEXT,\n  owner_id BINARY(16) NOT NULL,\n  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  FOREIGN KEY (owner_id) REFERENCES users(id) ON DELETE CASCADE\n)\n" rows_affected=0 rows_returned=0 elapsed=2.87089ms elapsed_secs=0.00287089
+[12:17:17:15:34 Thread#1/DEBUG] >> summary="CREATE TABLE IF NOT …" db.statement="\n\nCREATE TABLE IF NOT EXISTS channels (\n  id BINARY(16) PRIMARY KEY,\n  name VARCHAR(100) NOT NULL,\n  channel_type ENUM('text', 'voice', 'announcement') NOT NULL,\n  server_id BINARY(16) NOT NULL,\n  topic TEXT,\n  slow_mode INT,\n  is_private BOOLEAN NOT NULL DEFAULT false,\n  last_message_id BINARY(16),\n  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  FOREIGN KEY (server_id) REFERENCES servers(id) ON DELETE CASCADE\n)\n" rows_affected=0 rows_returned=0 elapsed=2.370035ms elapsed_secs=0.002370035
+[12:17:17:15:34 Thread#1/DEBUG] >> summary="CREATE TABLE IF NOT …" db.statement="\n\nCREATE TABLE IF NOT EXISTS messages (\n  id BINARY(16) PRIMARY KEY,\n  content TEXT NOT NULL,\n  author_id BINARY(16) NOT NULL,\n  channel_id BINARY(16) NOT NULL,\n  reply_to_id BINARY(16),\n  is_pinned BOOLEAN NOT NULL DEFAULT false,\n  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  edited_at TIMESTAMP NULL,\n  FOREIGN KEY (author_id) REFERENCES users(id) ON DELETE CASCADE,\n  FOREIGN KEY (channel_id) REFERENCES channels(id) ON DELETE CASCADE,\n  FOREIGN KEY (reply_to_id) REFERENCES messages(id) ON DELETE\n  SET\n    NULL\n)\n" rows_affected=0 rows_returned=0 elapsed=3.403744ms elapsed_secs=0.003403744
+[12:17:17:15:34 Thread#1/DEBUG] >> summary="ALTER TABLE channels ADD …" db.statement="\n\nALTER TABLE\n  channels\nADD\n  FOREIGN KEY (last_message_id) REFERENCES messages(id) ON DELETE\nSET\n  NULL\n" rows_affected=0 rows_returned=0 elapsed=71.784672ms elapsed_secs=0.071784672
+[12:17:17:15:34 Thread#1/DEBUG] >> summary="CREATE TABLE IF NOT …" db.statement="\n\nCREATE TABLE IF NOT EXISTS attachments (\n  id BINARY(16) PRIMARY KEY,\n  message_id BINARY(16) NOT NULL,\n  attachment_type ENUM('image', 'video', 'file') NOT NULL,\n  url TEXT NOT NULL,\n  filename VARCHAR(255) NOT NULL,\n  size BIGINT NOT NULL,\n  mime_type VARCHAR(127) NOT NULL,\n  width INT,\n  height INT,\n  duration INT,\n  FOREIGN KEY (message_id) REFERENCES messages(id) ON DELETE CASCADE\n)\n" rows_affected=0 rows_returned=0 elapsed=4.379421ms elapsed_secs=0.004379421
+[12:17:17:15:34 Thread#1/DEBUG] >> summary="CREATE TABLE IF NOT …" db.statement="\n\nCREATE TABLE IF NOT EXISTS reactions (\n  message_id BINARY(16) NOT NULL,\n  user_id BINARY(16) NOT NULL,\n  emoji VARCHAR(32) NOT NULL,\n  PRIMARY KEY (message_id, user_id, emoji),\n  FOREIGN KEY (message_id) REFERENCES messages(id) ON DELETE CASCADE,\n  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE\n)\n" rows_affected=0 rows_returned=0 elapsed=2.883124ms elapsed_secs=0.002883124
+[12:17:17:15:34 Thread#1/DEBUG] >> summary="CREATE TABLE IF NOT …" db.statement="\n\nCREATE TABLE IF NOT EXISTS mentions (\n  message_id BINARY(16) NOT NULL,\n  user_id BINARY(16) NOT NULL,\n  PRIMARY KEY (message_id, user_id),\n  FOREIGN KEY (message_id) REFERENCES messages(id) ON DELETE CASCADE,\n  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE\n)\n" rows_affected=0 rows_returned=0 elapsed=2.343085ms elapsed_secs=0.002343085
+[12:17:17:15:34 Thread#1/DEBUG] >> summary="CREATE TABLE IF NOT …" db.statement="\n\nCREATE TABLE IF NOT EXISTS server_members (\n  user_id BINARY(16) NOT NULL,\n  server_id BINARY(16) NOT NULL,\n  joined_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  PRIMARY KEY (user_id, server_id),\n  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,\n  FOREIGN KEY (server_id) REFERENCES servers(id) ON DELETE CASCADE\n)\n" rows_affected=0 rows_returned=0 elapsed=2.726176ms elapsed_secs=0.002726176
+[12:17:17:15:34 Thread#1/DEBUG] >> summary="CREATE TABLE IF NOT …" db.statement="\n\nCREATE TABLE IF NOT EXISTS invites (\n  code VARCHAR(10) PRIMARY KEY,\n  server_id BINARY(16) NOT NULL,\n  inviter_id BINARY(16) NOT NULL,\n  max_uses INT,\n  uses INT NOT NULL DEFAULT 0,\n  expires_at TIMESTAMP NULL,\n  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  FOREIGN KEY (server_id) REFERENCES servers(id) ON DELETE CASCADE,\n  FOREIGN KEY (inviter_id) REFERENCES users(id) ON DELETE CASCADE\n)\n" rows_affected=0 rows_returned=0 elapsed=2.499579ms elapsed_secs=0.002499579
+[12:17:17:15:34 Thread#1/DEBUG] >> summary="COMMIT" db.statement="" rows_affected=0 rows_returned=0 elapsed=256.064µs elapsed_secs=0.000256064
+[12:17:17:16:41 Thread#2/WARN] >> Received SIGINT. Requesting shutdown.
+[12:17:17:16:41 Thread#1/INFO] >> Shutdown requested. Waiting for pending I/O...
+[12:17:17:16:41 Thread#1/DEBUG] >> signal received, starting graceful shutdown
+[12:17:17:16:41 Thread#1/INFO] >> Graceful shutdown completed successfully.
+[12:17:17:16:44 Thread#1/INFO] >> Running server
+[12:17:17:16:44 Thread#1/DEBUG] >> server config has been serialized: Config: ServerConfig {
+    http_port: Port(
+        8000,
+    ),
+    use_http: false,
+    log_level: Trace,
+    log_path: Some(
+        "",
+    ),
+    env_override: true,
+    db_url: "localhost",
+    db_port: Port(
+        3306,
+    ),
+    db_user: "occult",
+    db_pass: "occult",
+    db_name: "occult_db",
+}
+[12:17:17:16:44 Thread#1/DEBUG] >> server_config = ServerConfig {
+    http_port: Port(
+        8000,
+    ),
+    use_http: false,
+    log_level: Trace,
+    log_path: Some(
+        "",
+    ),
+    env_override: true,
+    db_url: "localhost",
+    db_port: Port(
+        3306,
+    ),
+    db_user: "occult",
+    db_pass: "occult",
+    db_name: "occult_db",
+}
+[12:17:17:16:44 Thread#1/INFO] >> 🔧 Configured for debug.
+[12:17:17:16:44 Thread#1/INFO] >> address: 0.0.0.0
+[12:17:17:16:44 Thread#1/INFO] >> port: 8000
+[12:17:17:16:44 Thread#1/INFO] >> workers: 16
+[12:17:17:16:44 Thread#1/INFO] >> max blocking threads: 512
+[12:17:17:16:44 Thread#1/INFO] >> ident: Rocket
+[12:17:17:16:44 Thread#1/INFO] >> IP header: X-Real-IP
+[12:17:17:16:44 Thread#1/INFO] >> limits: bytes = 8KiB, data-form = 2MiB, file = 1MiB, form = 32KiB, json = 1MiB, msgpack = 1MiB, string = 8KiB
+[12:17:17:16:44 Thread#1/INFO] >> temp dir: /tmp
+[12:17:17:16:44 Thread#1/INFO] >> http/2: true
+[12:17:17:16:44 Thread#1/INFO] >> keep-alive: 5s
+[12:17:17:16:44 Thread#1/INFO] >> tls: disabled
+[12:17:17:16:44 Thread#1/INFO] >> shutdown: ctrlc = true, force = true, signals = [SIGTERM], grace = 2s, mercy = 3s
+[12:17:17:16:44 Thread#1/INFO] >> log level: normal
+[12:17:17:16:44 Thread#1/INFO] >> cli colors: true
+[12:17:17:16:44 Thread#1/INFO] >> 📬 Routes:
+[12:17:17:16:44 Thread#1/INFO] >> (get_servers) GET /servers
+[12:17:17:16:44 Thread#1/INFO] >> (create_server) POST /servers
+[12:17:17:16:44 Thread#1/INFO] >> (get_current_user) GET /users/@me
+[12:17:17:16:44 Thread#1/INFO] >> (update_current_user) PATCH /users/@me
+[12:17:17:16:44 Thread#1/INFO] >> (login) POST /auth/login application/json
+[12:17:17:16:44 Thread#1/INFO] >> (register) POST /auth/register application/json
+[12:17:17:16:44 Thread#1/INFO] >> (get_user) GET /users/<user_id>
+[12:17:17:16:44 Thread#1/INFO] >> (get_server) GET /servers/<server_id>
+[12:17:17:16:44 Thread#1/INFO] >> (update_server) PATCH /servers/<server_id>
+[12:17:17:16:44 Thread#1/INFO] >> (delete_server) DELETE /servers/<server_id>
+[12:17:17:16:44 Thread#1/INFO] >> (get_channel) GET /channels/<channel_id>
+[12:17:17:16:44 Thread#1/INFO] >> (update_channel) PATCH /channels/<channel_id> application/json
+[12:17:17:16:44 Thread#1/INFO] >> (delete_channel) DELETE /channels/<channel_id>
+[12:17:17:16:44 Thread#1/INFO] >> (join_server) POST /users/@me/servers application/json
+[12:17:17:16:44 Thread#1/INFO] >> (create_invite) POST /servers/<server_id>/invites application/json
+[12:17:17:16:44 Thread#1/INFO] >> (get_channels) GET /servers/<server_id>/channels
+[12:17:17:16:44 Thread#1/INFO] >> (create_channel) POST /servers/<server_id>/channels application/json
+[12:17:17:16:44 Thread#1/INFO] >> (send_typing_indicator) POST /channels/<channel_id>/typing
+[12:17:17:16:44 Thread#1/INFO] >> (get_messages) GET /channels/<channel_id>/messages?<before>&<after>&<limit>
+[12:17:17:16:44 Thread#1/INFO] >> (upload_attachments) POST /channels/<channel_id>/attachments
+[12:17:17:16:44 Thread#1/INFO] >> (pin_message) PUT /channels/<channel_id>/pins/<message_id>
+[12:17:17:16:44 Thread#1/INFO] >> (unpin_message) DELETE /channels/<channel_id>/pins/<message_id>
+[12:17:17:16:44 Thread#1/INFO] >> (update_message) PATCH /channels/<channel_id>/messages/<message_id> application/json
+[12:17:17:16:44 Thread#1/INFO] >> (delete_message) DELETE /channels/<channel_id>/messages/<message_id>
+[12:17:17:16:44 Thread#1/INFO] >> (create_message) POST /servers/<server_id>/channels/<channel_id>/messages
+[12:17:17:16:44 Thread#1/INFO] >> (add_reaction) PUT /channels/<channel_id>/reactions/<message_id>/<emoji>
+[12:17:17:16:44 Thread#1/INFO] >> (remove_reaction) DELETE /channels/<channel_id>/reactions/<message_id>/<emoji>
+[12:17:17:16:44 Thread#1/INFO] >> 📡 Fairings:
+[12:17:17:16:44 Thread#1/INFO] >> Shield (liftoff, response, singleton)
+[12:17:17:16:44 Thread#1/INFO] >> 🛡️ Shield:
+[12:17:17:16:44 Thread#1/INFO] >> Permissions-Policy: interest-cohort=()
+[12:17:17:16:44 Thread#1/INFO] >> X-Content-Type-Options: nosniff
+[12:17:17:16:44 Thread#1/INFO] >> X-Frame-Options: SAMEORIGIN
+[12:17:17:16:44 Thread#1/WARN] >> 🚀 Rocket has launched from http://0.0.0.0:8000
+[12:17:17:16:44 Thread#1/ERROR] >> Starting DB on port Port(
+    3306,
+)
+[12:17:17:16:44 Thread#1/DEBUG] >> attempt to connect to the db!
+[12:17:17:16:44 Thread#1/DEBUG] >> not performing TLS upgrade: TLS support not compiled in
+[12:17:17:16:44 Thread#1/DEBUG] >> summary="SET sql_mode=(SELECT CONCAT(@@sql_mode, ',PIPES_AS_CONCAT,NO_ENGINE_SUBSTITUTION')),time_zone='+00:00',NAMES …" db.statement="\n\nSET\n  sql_mode =(\n    SELECT\n      CONCAT(\n        @ @sql_mode,\n        ',PIPES_AS_CONCAT,NO_ENGINE_SUBSTITUTION'\n      )\n  ),\n  time_zone = '+00:00',\n  NAMES utf8mb4 COLLATE utf8mb4_unicode_ci;\n" rows_affected=0 rows_returned=0 elapsed=371.315µs elapsed_secs=0.000371315
+[12:17:17:16:44 Thread#1/DEBUG] >> Connected to db!
+[12:17:17:16:44 Thread#1/DEBUG] >> summary="BEGIN" db.statement="" rows_affected=0 rows_returned=0 elapsed=135.185µs elapsed_secs=0.000135185
+[12:17:17:16:44 Thread#1/DEBUG] >> summary="CREATE TABLE IF NOT …" db.statement="\n\nCREATE TABLE IF NOT EXISTS users (\n  id BINARY(16) PRIMARY KEY,\n  username VARCHAR(32) NOT NULL UNIQUE,\n  display_name VARCHAR(32),\n  email VARCHAR(255) NOT NULL UNIQUE,\n  avatar TEXT,\n  status ENUM('online', 'idle', 'dnd', 'offline') NOT NULL DEFAULT 'offline',\n  custom_status TEXT,\n  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP\n)\n" rows_affected=0 rows_returned=0 elapsed=9.341123ms elapsed_secs=0.009341123
+[12:17:17:16:44 Thread#1/DEBUG] >> summary="CREATE TABLE IF NOT …" db.statement="\n\nCREATE TABLE IF NOT EXISTS servers (\n  id BINARY(16) PRIMARY KEY,\n  name VARCHAR(100) NOT NULL,\n  description TEXT,\n  icon TEXT,\n  owner_id BINARY(16) NOT NULL,\n  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  FOREIGN KEY (owner_id) REFERENCES users(id) ON DELETE CASCADE\n)\n" rows_affected=0 rows_returned=0 elapsed=2.539327ms elapsed_secs=0.002539327
+[12:17:17:16:44 Thread#1/DEBUG] >> summary="CREATE TABLE IF NOT …" db.statement="\n\nCREATE TABLE IF NOT EXISTS channels (\n  id BINARY(16) PRIMARY KEY,\n  name VARCHAR(100) NOT NULL,\n  channel_type ENUM('text', 'voice', 'announcement') NOT NULL,\n  server_id BINARY(16) NOT NULL,\n  topic TEXT,\n  slow_mode INT,\n  is_private BOOLEAN NOT NULL DEFAULT false,\n  last_message_id BINARY(16),\n  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  FOREIGN KEY (server_id) REFERENCES servers(id) ON DELETE CASCADE\n)\n" rows_affected=0 rows_returned=0 elapsed=2.709126ms elapsed_secs=0.002709126
+[12:17:17:16:44 Thread#1/DEBUG] >> summary="CREATE TABLE IF NOT …" db.statement="\n\nCREATE TABLE IF NOT EXISTS messages (\n  id BINARY(16) PRIMARY KEY,\n  content TEXT NOT NULL,\n  author_id BINARY(16) NOT NULL,\n  channel_id BINARY(16) NOT NULL,\n  reply_to_id BINARY(16),\n  is_pinned BOOLEAN NOT NULL DEFAULT false,\n  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  edited_at TIMESTAMP NULL,\n  FOREIGN KEY (author_id) REFERENCES users(id) ON DELETE CASCADE,\n  FOREIGN KEY (channel_id) REFERENCES channels(id) ON DELETE CASCADE,\n  FOREIGN KEY (reply_to_id) REFERENCES messages(id) ON DELETE\n  SET\n    NULL\n)\n" rows_affected=0 rows_returned=0 elapsed=3.177207ms elapsed_secs=0.003177207
+[12:17:17:16:44 Thread#1/DEBUG] >> summary="ALTER TABLE channels ADD …" db.statement="\n\nALTER TABLE\n  channels\nADD\n  FOREIGN KEY (last_message_id) REFERENCES messages(id) ON DELETE\nSET\n  NULL\n" rows_affected=0 rows_returned=0 elapsed=71.45766ms elapsed_secs=0.07145766
+[12:17:17:16:44 Thread#1/DEBUG] >> summary="CREATE TABLE IF NOT …" db.statement="\n\nCREATE TABLE IF NOT EXISTS attachments (\n  id BINARY(16) PRIMARY KEY,\n  message_id BINARY(16) NOT NULL,\n  attachment_type ENUM('image', 'video', 'file') NOT NULL,\n  url TEXT NOT NULL,\n  filename VARCHAR(255) NOT NULL,\n  size BIGINT NOT NULL,\n  mime_type VARCHAR(127) NOT NULL,\n  width INT,\n  height INT,\n  duration INT,\n  FOREIGN KEY (message_id) REFERENCES messages(id) ON DELETE CASCADE\n)\n" rows_affected=0 rows_returned=0 elapsed=2.733559ms elapsed_secs=0.002733559
+[12:17:17:16:44 Thread#1/DEBUG] >> summary="CREATE TABLE IF NOT …" db.statement="\n\nCREATE TABLE IF NOT EXISTS reactions (\n  message_id BINARY(16) NOT NULL,\n  user_id BINARY(16) NOT NULL,\n  emoji VARCHAR(32) NOT NULL,\n  PRIMARY KEY (message_id, user_id, emoji),\n  FOREIGN KEY (message_id) REFERENCES messages(id) ON DELETE CASCADE,\n  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE\n)\n" rows_affected=0 rows_returned=0 elapsed=4.347671ms elapsed_secs=0.004347671
+[12:17:17:16:44 Thread#1/DEBUG] >> summary="CREATE TABLE IF NOT …" db.statement="\n\nCREATE TABLE IF NOT EXISTS mentions (\n  message_id BINARY(16) NOT NULL,\n  user_id BINARY(16) NOT NULL,\n  PRIMARY KEY (message_id, user_id),\n  FOREIGN KEY (message_id) REFERENCES messages(id) ON DELETE CASCADE,\n  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE\n)\n" rows_affected=0 rows_returned=0 elapsed=2.085469ms elapsed_secs=0.002085469
+[12:17:17:16:44 Thread#1/DEBUG] >> summary="CREATE TABLE IF NOT …" db.statement="\n\nCREATE TABLE IF NOT EXISTS server_members (\n  user_id BINARY(16) NOT NULL,\n  server_id BINARY(16) NOT NULL,\n  joined_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  PRIMARY KEY (user_id, server_id),\n  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,\n  FOREIGN KEY (server_id) REFERENCES servers(id) ON DELETE CASCADE\n)\n" rows_affected=0 rows_returned=0 elapsed=2.657063ms elapsed_secs=0.002657063
+[12:17:17:16:44 Thread#1/DEBUG] >> summary="CREATE TABLE IF NOT …" db.statement="\n\nCREATE TABLE IF NOT EXISTS invites (\n  code VARCHAR(10) PRIMARY KEY,\n  server_id BINARY(16) NOT NULL,\n  inviter_id BINARY(16) NOT NULL,\n  max_uses INT,\n  uses INT NOT NULL DEFAULT 0,\n  expires_at TIMESTAMP NULL,\n  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  FOREIGN KEY (server_id) REFERENCES servers(id) ON DELETE CASCADE,\n  FOREIGN KEY (inviter_id) REFERENCES users(id) ON DELETE CASCADE\n)\n" rows_affected=0 rows_returned=0 elapsed=2.306272ms elapsed_secs=0.002306272
+[12:17:17:16:44 Thread#1/DEBUG] >> summary="COMMIT" db.statement="" rows_affected=0 rows_returned=0 elapsed=205.093µs elapsed_secs=0.000205093
+[12:17:17:24:24 Thread#2/WARN] >> Received SIGINT. Requesting shutdown.
+[12:17:17:24:24 Thread#1/INFO] >> Shutdown requested. Waiting for pending I/O...
+[12:17:17:24:24 Thread#1/DEBUG] >> signal received, starting graceful shutdown
+[12:17:17:24:24 Thread#1/INFO] >> Graceful shutdown completed successfully.

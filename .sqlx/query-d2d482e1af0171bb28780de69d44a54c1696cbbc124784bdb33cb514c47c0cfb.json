@@ -1,0 +1,54 @@
+{
+  "db_name": "MySQL",
+  "query": "SELECT server_id, uses, max_uses, expires_at \n         FROM invites \n         WHERE code = ? \n         AND (expires_at IS NULL OR expires_at > CURRENT_TIMESTAMP)\n         AND (max_uses IS NULL OR uses < max_uses)",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "server_id",
+        "type_info": {
+          "type": "String",
+          "flags": "NOT_NULL | MULTIPLE_KEY | BINARY | NO_DEFAULT_VALUE",
+          "max_size": 16
+        }
+      },
+      {
+        "ordinal": 1,
+        "name": "uses",
+        "type_info": {
+          "type": "Long",
+          "flags": "NOT_NULL",
+          "max_size": 11
+        }
+      },
+      {
+        "ordinal": 2,
+        "name": "max_uses",
+        "type_info": {
+          "type": "Long",
+          "flags": "",
+          "max_size": 11
+        }
+      },
+      {
+        "ordinal": 3,
+        "name": "expires_at",
+        "type_info": {
+          "type": "Timestamp",
+          "flags": "BINARY",
+          "max_size": 19
+        }
+      }
+    ],
+    "parameters": {
+      "Right": 1
+    },
+    "nullable": [
+      false,
+      false,
+      true,
+      true
+    ]
+  },
+  "hash": "d2d482e1af0171bb28780de69d44a54c1696cbbc124784bdb33cb514c47c0cfb"
+}

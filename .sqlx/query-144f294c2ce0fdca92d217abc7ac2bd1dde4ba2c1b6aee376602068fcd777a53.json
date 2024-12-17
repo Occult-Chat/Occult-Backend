@@ -1,0 +1,12 @@
+{
+  "db_name": "MySQL",
+  "query": "INSERT INTO invites (code, server_id, inviter_id, max_uses, expires_at) \n         VALUES (?, ?, ?, ?, ?)",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Right": 5
+    },
+    "nullable": []
+  },
+  "hash": "144f294c2ce0fdca92d217abc7ac2bd1dde4ba2c1b6aee376602068fcd777a53"
+}

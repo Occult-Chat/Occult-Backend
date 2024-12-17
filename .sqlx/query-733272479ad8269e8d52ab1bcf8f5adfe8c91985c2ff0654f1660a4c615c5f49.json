@@ -1,0 +1,12 @@
+{
+  "db_name": "MySQL",
+  "query": "INSERT INTO attachments \n         (id, message_id, attachment_type, url, filename, size, mime_type) \n         VALUES (?, ?, ?, ?, ?, ?, ?)",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Right": 7
+    },
+    "nullable": []
+  },
+  "hash": "733272479ad8269e8d52ab1bcf8f5adfe8c91985c2ff0654f1660a4c615c5f49"
+}

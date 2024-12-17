@@ -1,0 +1,12 @@
+{
+  "db_name": "MySQL",
+  "query": "UPDATE messages SET content = ?, edited_at = CURRENT_TIMESTAMP \n         WHERE id = ?",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Right": 2
+    },
+    "nullable": []
+  },
+  "hash": "7ec552c760132222c47d485d4809ab5e38404c8f37f02b8c4525c1fb25044423"
+}

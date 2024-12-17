@@ -1,0 +1,12 @@
+{
+  "db_name": "MySQL",
+  "query": "INSERT INTO servers (id, name, owner_id, description) VALUES (?, ?, ?, ?)",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Right": 4
+    },
+    "nullable": []
+  },
+  "hash": "675654cb92bbc590875dd3131940a009c2254facc8e59d5205f0b16405bac27a"
+}

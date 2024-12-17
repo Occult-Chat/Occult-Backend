@@ -1,0 +1,12 @@
+{
+  "db_name": "MySQL",
+  "query": "INSERT INTO server_members (server_id, user_id) VALUES (?, ?)",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Right": 2
+    },
+    "nullable": []
+  },
+  "hash": "737d406dd586e11873bd0e7a53641a5df1851aa0a241ad7a86c4dec84e6bc4f6"
+}

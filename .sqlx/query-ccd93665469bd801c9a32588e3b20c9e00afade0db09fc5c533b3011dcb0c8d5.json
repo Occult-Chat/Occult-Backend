@@ -1,0 +1,12 @@
+{
+  "db_name": "MySQL",
+  "query": "UPDATE channels SET last_message_id = ? WHERE id = ?",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Right": 2
+    },
+    "nullable": []
+  },
+  "hash": "ccd93665469bd801c9a32588e3b20c9e00afade0db09fc5c533b3011dcb0c8d5"
+}

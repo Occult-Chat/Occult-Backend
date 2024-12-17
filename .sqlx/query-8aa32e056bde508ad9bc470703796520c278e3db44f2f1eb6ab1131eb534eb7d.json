@@ -1,0 +1,12 @@
+{
+  "db_name": "MySQL",
+  "query": "UPDATE invites SET uses = uses + 1 WHERE code = ?",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Right": 1
+    },
+    "nullable": []
+  },
+  "hash": "8aa32e056bde508ad9bc470703796520c278e3db44f2f1eb6ab1131eb534eb7d"
+}
